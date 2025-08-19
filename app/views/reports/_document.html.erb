@@ -1,0 +1,130 @@
+<%
+  download ||= false
+  hidden_intersections = defined?(@hidden_intersections) ? @hidden_intersections : []
+  captions = report.intersection_captions.as_hash_for_report(report.id)
+%>
+<div
+  id="report-container"
+  class="max-h-screen overflow-hidden grid grid-cols-2 gap-4 w-full <%= 'download' if download %>"
+  data-controller="intersection-visibility"
+  data-intersection-visibility-report-id-value="<%= report.id %>"
+>
+  <div id="report-header" class="flex-col items-center justify-center absolute right-0 top-0 h-full">
+    <h1 class="font-bold text-2xl"><%= report.title %></h1>
+    <time class="italic" datetime="<%= Date.current.strftime('%Y-%m-%d') %>">
+      <%= Date.current.strftime('%B %-d, %Y') %>
+    </time>
+    <% subtitles = [report.subtitle1, report.subtitle2].compact_blank %>
+    <% if subtitles.present? %>
+      <div class="flex items-center gap-1">
+        <% subtitles.each_with_index do |subtitle, idx| %>
+          <span class="text-sm text-gray-700"><%= subtitle %></span>
+          <% if (idx < subtitles.size - 1) && (subtitles.size > 1) %>
+            <%= "&centerdot;".html_safe %>
+          <% end %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+  <div class="min-h-0 min-w-0">
+    <% if report.image.attached? %>
+      <%= image_tag report.image, alt: "Intersection Map", class: "w-full h-full object-contain" %>
+    <% else %>
+      <div class="w-full h-64 bg-gray-100 rounded-lg border-2 border-dashed border-gray-300 flex items-center justify-center">
+        <span class="text-gray-500">
+          No intersection image available
+        </span>
+      </div>
+    <% end %>
+  </div>
+  <div class="min-h-0 min-w-0 grid lg:grid-cols-3 gap-[5px]">
+    <% unless download %>
+      <div class="col-span-full global-toggle-container">
+        <button
+          class="global-toggle-btn bg-primary-200"
+          data-action="click->intersection-visibility#showAll"
+          title="Show all intersections across all columns">
+          <i class="fa-solid fa-eye"></i> Show All
+        </button>
+        <button
+          class="global-toggle-btn bg-primary-200"
+          data-action="click->intersection-visibility#hideAll"
+          title="Hide all intersections across all columns">
+          <i class="fa-solid fa-eye-slash"></i> Hide All
+        </button>
+      </div>
+    <% end %>
+
+    <% unless report.report_columns.exists? %>
+      <div class="p-2 h-full shrink-0 flex flex-col justify-center">
+        <p class="text-lg font-semibold text-gray-800">No columns available</p>
+      </div>
+    <% end %>
+
+    <% report.report_columns.first(3).each do |column| %>
+      <% if column.synchro_files_attached? && column.synchro_report %>
+        <div class="report-column lg:mx-auto">
+          <div class="column-header flex flex-col items-center">
+            <% header = column.title %>
+            <% header += " (#{column.col_type.titleize.upcase})" if column.col_type.present? %>
+            <h4 class="text-md font-semibold"><%= header %></h4>
+            <h6 class="text-xs text-gray-700"><%= column.subtitle %></h6>
+          </div>
+
+          <div class="column-intersections">
+            <% column.synchro_report.am_intersections.first(4).each_with_index do |(name, intersection), index| %>
+              <% intersection_id = "#{column.id}-#{index}" %>
+              <% is_hidden = hidden_intersections.include?(intersection_id) %>
+              <div
+                id="intersection-<%= intersection_id %>"
+                class="intersection-item mx-auto <%= 'hidden-intersection' if is_hidden %>"
+                data-intersection-visibility-target="intersection"
+                data-intersection-id="<%= intersection_id %>"
+                data-column-id="<%= column.id %>">
+
+                <% unless download %>
+                  <button
+                    class="intersection-toggle-btn"
+                    data-intersection-visibility-target="toggleButton"
+                    data-action="click->intersection-visibility#toggleIntersection"
+                    data-intersection-id="<%= intersection_id %>"
+                    title="Toggle this intersection visibility"
+                    aria-label="Toggle visibility for intersection <%= name %>">
+                    <i class="fa-solid fa-eye-slash intersection-open"></i>
+                    <i class="fa-solid fa-eye intersection-closed hidden"></i>
+                    <span class="sr-only">Toggle intersection <%= name %></span>
+                  </button>
+
+                  <%= link_to edit_intersection_caption_report_path(report, intersection_id, current_caption: captions[intersection_id] || ''),
+                              class: "intersection-edit-btn",
+                              id: "edit-btn-#{intersection_id}",
+                              data: {
+                                turbo_frame: "modal",
+                                turbo_stream: true
+                              },
+                              title: "Add caption to intersection",
+                              "aria-label": "Edit caption for intersection #{name}" do %>
+                    <i class="fa-solid fa-edit"></i>
+                    <span class="sr-only">Edit caption for intersection <%= name %></span>
+                  <% end %>
+                <% end %>
+
+                <div
+                  class="intersection-caption"
+                  id="caption-<%= intersection_id %>"
+                  data-intersection-id="<%= intersection_id %>"
+                  style="<%= captions[intersection_id].present? ? 'display: block;' : 'display: none;' %>">
+                  <%= captions[intersection_id] if captions[intersection_id].present? %>
+                </div>
+
+                <%= SynchroParser::IntersectionRenderer.render_intersection(
+                      name, index, intersection, column.synchro_report.pm_intersections[name]
+                    ).html_safe %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>

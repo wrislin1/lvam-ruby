@@ -1,0 +1,8 @@
+<% iteration = local_assigns[:report_iteration] || nil %>
+<%= render TableRowComponent.new report,
+                                 column_defs,
+                                 active_columns:,
+                                 collection_size: iteration&.size || 0,
+                                 idx: iteration&.index || 0,
+                                 stream_enter_class: 'animate-flash-green',
+                                 stream_exit_class: 'animate-flash-red' %>

@@ -1,0 +1,27 @@
+<footer id="site-footer" class="py-10 bg-primary-900" role="contentinfo">
+    <nav>
+      <div class="max-w-screen-xl flex h-full flex-wrap items-center justify-between mx-auto px-10 xl:px-0">
+        <a href="<%= root_path %>" class="flex items-center space-x-3 rtl:space-x-reverse">
+          <span class="self-center text-4xl text-primary-200 tracking-tight uppercase font-base whitespace-nowrap">LVAM</span>
+        </a>
+        <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+          <%= render SecondaryButtonComponent.new 'Contact Us', tag: :a, attrs: { href: "/contact" } %>
+        </div>
+        <div class="flex flex-col lg:flex-row items-center justify-between w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
+          <ul class="flex flex-col items-center lg:items-start p-4 md:p-0 mt-4 font-medium rounded-lg md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0">
+            <% helpers.navbar_links.each do |link| %>
+              <li>
+                <a
+                  href="<%= link[:path] %>"
+                  class="nav-link from-left block uppercase py-2 px-3 text-primary-200 md:p-0"
+                  aria-current="page"
+                >
+                  <%= link[:name] %>
+                </a>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </nav>
+</footer>

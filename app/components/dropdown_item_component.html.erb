@@ -1,0 +1,15 @@
+<% if method.present? %>
+  <%= button_to path, method:, params:, class: "#{DropdownItemComponent::CLASSES.join(' ')} w-full justify-start text-left flex-1", form: { class: 'w-full flex justify-start flex-1', data: form_data } do %>
+    <% if icon.present? %>
+      <i class="far fa-fw mr-2 <%= icon %>"></i>
+    <% end %>
+    <%= name %>
+  <% end %>
+<% else %>
+  <%= link_to path, class: DropdownItemComponent::CLASSES.join(' '), **attrs do %>
+    <% if icon.present? %>
+      <i class="far fa-fw mr-2 <%= icon %>"></i>
+    <% end %>
+    <%= name %>
+  <% end %>
+<% end %>

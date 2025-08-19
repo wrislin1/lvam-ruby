@@ -1,0 +1,16 @@
+<div class="md:flex w-full">
+  <ul class="flex-column space-y space-y-4 text-sm font-medium text-gray-500 dark:text-gray-400 md:me-6 mb-4 md:mb-0">
+    <% account_tabs.each do |tab| %>
+      <li>
+        <% link_class = tab[:active] ? 'bg-primary-500 hover:bg-primary-600 hover:border-primary-600 border-primary-500 text-white' : 'bg-white border border-gray-200 hover:bg-gray-100 hover:text-gray-900' %>
+        <a href="<%= tab[:path] %>" class="inline-flex items-center px-4 py-3 <%= link_class %> rounded-lg active w-full" <%= "aria-current=page" if tab[:active] %>>
+          <i class="fas <%= tab[:icon] %> fa-lg fa-fw me-1.5"></i>
+          <%= tab[:label] %>
+        </a>
+      </li>
+    <% end %>
+  </ul>
+  <div class="flex-1 bg-white shadow rounded p-6 text-medium text-gray-500 dark:text-gray-400 dark:bg-gray-800 rounded-lg w-full">
+    <%= yield %>
+  </div>
+</div>

@@ -1,0 +1,8 @@
+<% if user_download.complete? %>
+  <div class="flex justify-end whitespace-normal break-all">
+    <%= link_to user_download.file.blob.url, class: 'text-primary-700 hover:text-primary text-sm hover:underline', target: '_blank' do %>
+      <i class="far fa-download mr-1"></i>
+      <%= user_download.file.filename.to_s %>
+    <% end %>
+  </div>
+<% end %>

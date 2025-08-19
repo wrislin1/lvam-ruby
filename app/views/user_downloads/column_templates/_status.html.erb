@@ -1,0 +1,23 @@
+<div class="flex justify-start">
+  <% if user_download.pending? %>
+    <%= render BadgeComponent.new label: "Pending" %>
+  <% elsif user_download.processing? %>
+    <%= render BadgeComponent.new label: "Processing", variant: "warning" do |b| %>
+      <% b.with_icon_left do %>
+        <i class="far fa-hourglass-half"></i>
+      <% end %>
+    <% end %>
+  <% elsif user_download.failed? %>
+    <%= render BadgeComponent.new label: "Failed", variant: "danger" do |b| %>
+      <% b.with_icon_left do %>
+        <i class="far fa-triangle-exclamation"></i>
+      <% end %>
+    <% end %>
+  <% else %>
+    <%= render BadgeComponent.new label: "Complete", variant: "success" do |b| %>
+      <% b.with_icon_left do %>
+        <i class="far fa-circle-check"></i>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>

@@ -1,0 +1,39 @@
+<div data-controller="dropdown" data-dropdown-init-value="<%= @init %>">
+  <% if trigger? %>
+    <%= trigger %>
+  <% else %>
+    <button
+      <%= 'disabled' if @disabled %>
+      id="<%= @id %>-btn"
+      data-dropdown-target="trigger"
+      data-dropdown-toggle="<%= @id %>"
+      data-dropdown-placement="<%= @placement %>"
+      class="disabled:opacity-50 disabled:hover:cursor-not-allowed flex items-center justify-center h-8 w-8 text-sm font-medium text-center text-gray-600 hover:text-gray-800 disabled:hover:text-gray-600 bg-white rounded-lg hover:bg-gray-100 disabled:hover:bg-white focus:ring-4 focus:outline-none focus:ring-gray-50"
+      type="button"
+    >
+      <i class="fas fa-ellipsis-vertical fa-lg"></i>
+    </button>
+  <% end %>
+  <div class="z-50 hidden bg-white border border-gray-200 divide-y divide-gray-100 rounded-lg <%= @menu_class %> shadow-lg" id="<%= @id %>" aria-labelledby="<%= @id %>-btn">
+    <% @items.each do |x| %>
+      <% title, actions, icon = x.values_at :title, :actions, :icon %>
+      <% if actions.present? %>
+        <ul class="py-2 text-sm text-gray-700">
+          <% if title.present? %>
+            <div class="flex items-center gap-2 px-3 py-2 text-gray-400">
+              <% if icon %>
+                <i class="far fa-fw fa-xs <%= icon %>"></i>
+              <% end %>
+              <span class="truncate"><%= title %></span>
+            </div>
+          <% end %>
+          <% actions.each do |y| %>
+            <%= render DropdownItemComponent.new data: y %>
+          <% end %>
+        </ul>
+      <% else %>
+        <%= render DropdownItemComponent.new data: x %>
+      <% end %>
+    <% end %>
+  </div>
+</div>

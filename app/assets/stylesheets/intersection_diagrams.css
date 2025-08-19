@@ -1,0 +1,1203 @@
+/* ==========================================================================
+ *
+ * TABLE OF CONTENTS
+ *  - Accessibility utilities
+ *  - Download/Export mode
+ *  - Main layout container
+ *  - Report header
+ *  - Intersection card
+ *  - Intersection name label
+ *  - Intersection node circle
+ *  - Metrics box
+ *  - Approach & lane groups
+ *  - LOS labels
+ *  - Volume labels
+ *  - Card controls (toggle/edit)
+ *  - Page setup for print
+ *  - Print styles
+ *  - Responsive adjustments
+ * ======================================================================= */
+
+/* ===========================================
+   1. BASE/GLOBAL STYLES
+   =========================================== */
+/* ===== Page setup for print ====================================== */
+
+@page {
+    size: A4 landscape;
+    margin: 0;
+    max-height: 100%;
+    max-width: 100%
+}
+
+.hidden {
+    display: none !important;
+}
+/* ===== Accessibility utilities =================================== */
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+svg {
+    overflow: visible;
+}
+
+/* ===========================================
+   2. DESKTOP LAYOUT
+   =========================================== */
+/* ===== Main layout container ===================================== */
+
+#report-container {
+    max-height: 100vh;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 0.8fr 1fr 0.1fr;
+    gap: 1rem;
+    width: 100%;
+}
+
+.min-h-0.min-w-0:first-child {
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.min-h-0.min-w-0:last-child {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5px;
+    align-items: start;
+    height: 100%;
+    max-height: calc(100vh - 2rem);
+    grid-column: 2 / 3;
+}
+/* ===== Report header ============================================= */
+
+#report-header {
+    width: 50px;
+    display: flex;
+    writing-mode: sideways-lr;
+    text-orientation: mixed;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+
+    h1 {
+        font-size: 18px;
+        margin-bottom: 0.5rem;
+        color: #333;
+    }
+
+    time {
+        font-size: 12px;
+        color: #666;
+        margin-bottom: 0.5rem;
+    }
+
+    .flex span {
+        font-size: 11px;
+        color: #555;
+    }
+}
+
+.report-column {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.column-header {
+    text-align: center;
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid #ddd;
+    text-wrap: nowrap;
+
+    h4 {
+        font-size: 13px;
+        font-weight: 600;
+        margin-bottom: 0.25rem;
+        color: #333;
+    }
+
+    h6 {
+        font-size: 10px;
+        color: #666;
+    }
+}
+
+.column-intersections {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex: 1;
+}
+/* ===== Intersection card ========================================= */
+
+.intersection-item {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    border-radius: 4px;
+    overflow: hidden;
+    background-color: white;
+    border: 1px solid #e5e5e5;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.08);
+    height: 180px;
+    width: 242px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+/* ===========================================
+   3. DOWNLOAD OVERRIDES
+   =========================================== */
+/* ===== Download / Export  ==================================== */
+
+#report-container.download {
+    --header-col-width: 65px;
+    --padding: 0.4rem;
+    --intersection-size: 220px;
+    --grid-gap: 0.25rem;
+    --text-size: 8px;
+    --arrow-size: 16px;
+
+    padding: var(--padding);
+    padding-right: calc(var(--header-col-width) + var(--padding));
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: var(--grid-gap);
+    box-sizing: border-box;
+
+    .min-h-0.min-w-0:first-child {
+        max-width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .min-h-0.min-w-0:last-child {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(4, minmax(0, 1fr));
+        gap: var(--grid-gap);
+        align-items: start;
+        height: 100%;
+        max-height: calc(100vh - calc(var(--padding) * 2));
+        grid-column: 2 / 3;
+        padding: 0;
+        overflow: visible;
+    }
+
+    .report-column {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        max-width: 100%;
+
+        .column-header {
+            text-align: center;
+            margin-bottom: 0.2rem;
+            padding: 0.2rem 0.15rem;
+            border-bottom: 2px solid #2980a0;
+            background-color: #f8f9fa;
+            border-radius: 4px 4px 0 0;
+            text-wrap: nowrap;
+            flex-shrink: 0;
+
+            h4 {
+                font-size: 12px;
+                font-weight: 700;
+                margin-bottom: 0.1rem;
+                color: #2980a0;
+                line-height: 1.2;
+            }
+
+            h6 {
+                font-size: 9px;
+                color: #666;
+                line-height: 1.1;
+            }
+        }
+
+        .column-intersections {
+            display: flex;
+            flex-direction: column;
+            gap: calc(var(--grid-gap) + 1px);
+            flex: 1;
+            justify-content: flex-start;
+            min-height: 0;
+        }
+    }
+
+    #report-header {
+        width: var(--header-col-width);
+        display: flex;
+        writing-mode: sideways-lr;
+        text-orientation: mixed;
+        justify-content: center;
+        align-items: center;
+        padding: 0.8rem 0.4rem;
+        background-color: #f8f9fa;
+        border-right: 2px solid #2980a0;
+
+        h1 {
+            font-size: 15px;
+            font-weight: 700;
+            margin-bottom: 0.4rem;
+            color: #2980a0;
+            line-height: 1.1;
+        }
+
+        time {
+            font-size: 10px;
+            color: #666;
+            margin-bottom: 0.4rem;
+            font-weight: 500;
+        }
+
+        .flex {
+            span {
+                font-size: 9px;
+                color: #555;
+                font-weight: 500;
+            }
+        }
+    }
+    /* ===== Approaches & lane groups ================================== */
+
+    .approach-container {
+        position: absolute;
+        width: 30%;
+        height: 35%;
+        box-sizing: border-box;
+    }
+
+    .bottom .approach-vertical .los{
+        bottom: 5px;
+    }
+
+    .top .approach-vertical .los{
+        bottom: -10px;
+    }
+
+    .bottom .approach-vertical .lane-group {
+        bottom: 3px;
+    }
+
+    .top .approach-vertical .lane-group {
+        bottom: -6px;
+    }
+
+    .left .approach-horizontal .lane-group {
+        margin-right: 6px;
+        margin-left: 8px;
+        left: 3px;
+    }
+
+    .approach-container.left {
+        left: 6px;
+    }
+
+    .approach-container.top {
+        top: 4px;
+    }
+
+    .approach-container.right {
+        right: 6px;
+    }
+
+    .approach-container.bottom {
+        bottom: 19px;
+    }
+
+}
+
+#report-container.download .intersection-item {border-radius: 3px;border: 1px solid #ddd;height: 178px !important;
+    width: 230px !important;
+    max-width: 100%;
+    margin: 0 auto 0.2rem auto;flex-shrink: 0;
+}
+
+/* ===========================================
+   4. COMPONENT STYLES (SHARED)
+   =========================================== */
+
+/* Interactive Controls */
+.global-toggle-container {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 8px;
+    justify-content: center;
+}
+
+.global-toggle-btn {
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 10px;
+    transition: all 0.2s ease;
+}
+
+.global-toggle-btn:hover {
+    filter: brightness(0.9);
+}
+
+.global-toggle-btn:focus {
+    outline: 2px solid #007bff;
+    outline-offset: 2px;
+}
+/* ===== Card controls (toggle/edit) =============================== */
+
+.intersection-toggle-btn {
+    position: absolute;
+    top: 2px;
+    width: 18px;
+    height: 18px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 9px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    transition: all 0.2s ease;
+    opacity: 0.7;
+}
+
+.intersection-toggle-btn:hover {
+    opacity: 1;
+    background-color: rgba(255, 255, 255, 1);
+    transform: scale(1.1);
+}
+
+.intersection-toggle-btn:focus {
+    outline: 2px solid #007bff;
+    outline-offset: 2px;
+}
+
+.intersection-edit-btn {
+    position: absolute;
+    top: 2px;
+    left: 18px;
+    width: 18px;
+    height: 18px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 9px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    transition: all 0.2s ease;
+    opacity: 0.7;
+    color: #666;
+}
+
+.intersection-edit-btn:hover {
+    opacity: 1;
+    background-color: rgba(255, 255, 255, 1);
+    transform: scale(1.1);
+    color: #333;
+}
+
+.intersection-edit-btn:focus {
+    outline: 2px solid #007bff;
+    outline-offset: 2px;
+}
+
+/* Visibility States */
+.hidden-intersection {
+    opacity: .1 !important;
+    transition: visibility 0.2s ease;
+}
+
+.hidden-intersection .intersection-toggle-btn {
+    pointer-events: auto !important;
+    opacity: 1 !important;
+    background-color: rgba(255, 255, 255, 0.95);
+    color: #000;
+}
+
+.hidden-intersection .intersection-toggle-btn:hover {
+    background-color: #FFFFFF;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+#report-container.download .hidden-intersection {
+    visibility: hidden !important;
+}
+
+/* Captions */
+.intersection-caption {
+    position: absolute;
+    bottom: 18px;
+    left: 129px;
+    width: 50px;
+    text-align: center;
+    font-size: 10px;
+    font-style: italic;
+    color: #666;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 1px 2px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    z-index: 4;
+}
+
+#report-container.download .intersection-caption {
+    display: none;
+    font-size: 8px;
+    font-weight: 500;
+    color: #333;
+    background-color: rgba(255, 255, 255, 0.95);
+    border: 1px solid #ddd;
+    border-radius: 2px;
+    padding: 1px 3px;
+    bottom: 16px;
+    left: 131px;
+    width: 55px;
+}
+
+/* Intersection Diagram Components */
+.intersection-diagram-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    page-break-inside: avoid;
+    box-sizing: border-box;
+}
+
+.intersection-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    border: 2px solid #000;
+    background-color: white;
+    border-radius: 3px;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.intersection-diagram {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+}
+/* ===== Intersection: node circle ================================= */
+
+.intersection-circle {
+    position: absolute;
+    top: calc(50% - 9px);
+    left: calc(50% - 9px);
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: 2px solid #000;
+    background-color: #fff;
+    z-index: 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    box-shadow: 0 0 0 2px white;
+}
+
+.intersection-number {
+    font-size: 10px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 1;
+}
+/* ===== Intersection: name label ================================== */
+
+.intersection-name {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 9px;
+    font-weight: bold;
+    padding: 3px 2px;
+    border-top: 1px solid #000;
+    background-color: white;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    box-sizing: border-box;
+    height: 16px;
+    line-height: 1.1;
+}
+
+#report-container.download .intersection-name {
+    font-size: 8px;
+    font-weight: 600;
+    padding: 2px 1px;
+    border-top: 1px solid #333;
+    background-color: #f8f9fa;
+    height: 14px;
+    line-height: 1.1;
+    color: #333;
+}
+
+/* ===== Metrics box =============================================== */
+
+.metrics-box {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    width: 60px;
+    height: 26px;
+    border: 1px solid #000;
+    text-align: center;
+    padding: 2px;
+    background-color: #fff;
+    z-index: 5;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 2px;
+}
+
+#report-container.download .metrics-box {width: 65px;
+    height: 28px;
+    border: 1.5px solid #333;
+    padding: 1px;
+    border-radius: 2px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+/* ===== LOS labels ================================================= */
+
+.los-value {
+    font-size: 10px;
+    font-weight: bold;
+    line-height: 1.1;
+}
+
+.delay-value {
+    font-size: 8px;
+    line-height: 1.1;
+}
+
+#report-container.download .los-value {
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 1.1;
+    color: #333;
+}
+
+#report-container.download .delay-value {
+    font-size: 9px;
+    font-weight: 600;
+    line-height: 1.1;
+    color: #666;
+}
+
+/* ===========================================
+   5. TRAFFIC APPROACH COMPONENTS
+   =========================================== */
+
+.approach-container {
+    position: absolute;
+    width: 30%;
+    height: 30%;
+    box-sizing: border-box;
+}
+
+.approach-container.top {
+    top: 12px;
+    left: 35%;
+    display: flex;
+    justify-content: center;
+}
+
+.approach-container.bottom {
+    bottom: 26px;
+    left: 35%;
+    display: flex;
+    justify-content: center;
+}
+
+.approach-container.left {
+    left: 9px;
+    top: 35%;
+}
+
+.approach-container.right {
+    right: 10px;
+    top: 35%;
+}
+
+.approach-vertical {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    height: 100%;
+    padding: 2px 0;
+    box-sizing: border-box;
+}
+
+.approach-horizontal {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 100%;
+    padding: 2px;
+    box-sizing: border-box;
+}
+
+.lane-group-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 18px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.approach-container.top .lane-group-row,
+.approach-container.bottom .lane-group-row {
+    flex-direction: column;
+    height: auto;
+    width: 22px;
+}
+
+.lane-group {
+    position: relative;
+    width: 22px;
+    height: 18px;
+    box-sizing: border-box;
+}
+/* ===== Volume labels ============================================= */
+
+.volume,
+.los {
+    font-size: 7px;
+    font-weight: bold;
+    text-align: center;
+    padding: 0;
+    min-width: 16px;
+    box-sizing: border-box;
+    overflow: visible;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    line-height: 1;
+}
+
+#report-container.download .volume,
+#report-container.download .los {
+    font-size: 6px;
+    font-weight: 600;
+    line-height: 1;
+    color: #333;
+}
+
+.approach-container.left .volume,
+.approach-container.left .los,
+.approach-container.right .volume,
+.approach-container.right .los {
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lane-arrow-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    min-height: 18px;
+    min-width: 18px;
+}
+
+.lane-arrow-container { left: -6px; }
+
+.approach-vertical .los, .approach-vertical .volume {
+    position: relative;
+    left: -8px;
+}
+
+.lane-line {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 18px;
+}
+
+.lane-arrow-svg {
+    width: 100%;
+    height: 100%;
+    max-width: 18px;
+    max-height: 18px;
+    display: block;
+    margin: auto;
+    overflow: visible;
+}
+
+#report-container.download .lane-arrow-svg {
+    width: 16px;
+    height: 16px;
+    max-width: 16px;
+    max-height: 16px;
+}
+
+#report-container.download .lane-arrow-container {
+    min-height: 16px;
+    min-width: 16px;
+}
+
+.los-a {
+    color: #4CAF50;
+}
+
+.los-b {
+    color: #8BC34A;
+}
+
+.los-c {
+    color: #CDDC39;
+}
+
+.los-d {
+    color: #FFC107;
+}
+
+.los-e {
+    color: #FF9800;
+}
+
+.los-f {
+    color: #F44336;
+}
+
+.los-n\/a {
+    color: #9E9E9E;
+}
+
+.lane-group .lane-1-of-2 {
+    position: absolute;
+    left: 0%;
+    width: 50%;
+}
+
+.lane-group .lane-2-of-2 {
+    position: absolute;
+    left: 50%;
+    width: 50%;
+}
+
+.lane-group .lane-1-of-3 {
+    position: absolute;
+    left: 0;
+    width: 33.33%;
+}
+
+.lane-group .lane-2-of-3 {
+    position: absolute;
+    left: 33.33%;
+    width: 33.33%;
+}
+
+.lane-group .lane-3-of-3 {
+    position: absolute;
+    left: 66.66%;
+    width: 33.33%;
+}
+
+.approach-container.left .lane-group .lane-1-of-2,
+.approach-container.right .lane-group .lane-1-of-2 {
+    position: absolute;
+    top: 0%;
+    height: 50%;
+    left: auto;
+    width: 100%;
+}
+
+.approach-container.left .lane-group .lane-2-of-2,
+.approach-container.right .lane-group .lane-2-of-2 {
+    position: absolute;
+    top: 50%;
+    height: 50%;
+    left: auto;
+    width: 100%;
+}
+
+.approach-container.left .lane-group .lane-1-of-3,
+.approach-container.right .lane-group .lane-1-of-3 {
+    position: absolute;
+    top: 0;
+    height: 33.33%;
+    left: auto;
+    width: 100%;
+}
+
+.approach-container.left .lane-group .lane-2-of-3,
+.approach-container.right .lane-group .lane-2-of-3 {
+    position: absolute;
+    top: 33.33%;
+    height: 33.33%;
+    left: auto;
+    width: 100%;
+}
+
+.approach-container.left .lane-group .lane-3-of-3,
+.approach-container.right .lane-group .lane-3-of-3 {
+    position: absolute;
+    top: 66.66%;
+    height: 33.33%;
+    left: auto;
+    width: 100%;
+}
+
+.right .direction-r {
+    margin-bottom: -3px;
+}
+
+.right .direction-l {
+    margin-top: -3px;
+}
+
+.left .direction-l {
+    margin-bottom: -3px;
+}
+
+.left .direction-r {
+    margin-top: -3px;
+}
+
+.bottom .direction-l {
+    margin-right: -3px;
+}
+
+.bottom .direction-r {
+    margin-left: -3px;
+}
+
+.top .direction-l {
+    margin-left: -3px;
+}
+
+.top .direction-r {
+    margin-right: -3px;
+}
+
+.direction-t {
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.approach-vertical .los,
+.approach-vertical .volume {
+    transform: rotate(-90deg);
+}
+
+.top .approach-vertical .lane-group {
+    margin-bottom: 3px;
+    margin-top: 10px;
+}
+
+.bottom .approach-vertical .lane-group {
+    margin-bottom: 10px;
+    margin-top: 3px;
+}
+
+.left .approach-horizontal .lane-group {
+    margin-right: 6px;
+    margin-left: 8px;
+    left: 5px;
+}
+
+.right .approach-horizontal .lane-group {
+    margin-left: 6px;
+    margin-right: 12px;
+}
+
+/* ===========================================
+   7. RESPONSIVE DESIGN
+   =========================================== */
+
+/* Large screens */
+/* ===== Responsive adjustments ==================================== */
+
+@media screen and (min-width: 1200px) {
+    #report-container.download {
+        --intersection-size: 185px;
+        --padding: 0.6rem;
+        --grid-gap: 0.3rem;
+        --text-size: 9px;
+        --arrow-size: 17px;
+    }
+
+    #report-container.download .column-header h4 {
+        font-size: 13px;
+    }
+
+    #report-container.download .column-header h6 {
+        font-size: 10px;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+    #report-container.download {
+        --intersection-size: 175px;
+        --text-size: 8px;
+        --arrow-size: 16px;
+    }
+
+    #report-container:not(.download) .intersection-item {
+        height: 190px;
+        width: 190px;
+    }
+}
+
+/* Smaller screens */
+@media screen and (max-width: 767px) {
+    #report-container.download {
+        --intersection-size: 160px;
+        --padding: 0.3rem;
+        --grid-gap: 0.2rem;
+        --text-size: 6px;
+        --arrow-size: 14px;
+        grid-template-columns: 1fr;
+    }
+
+    #report-container.download #report-header {
+        writing-mode: horizontal-tb;
+        text-orientation: mixed;
+        width: 100%;
+        height: auto;
+        padding: 0.4rem;
+        border-right: none;
+        border-bottom: 2px solid #2980a0;
+        grid-row: 1;
+        grid-column: 1;
+    }
+
+    #report-container.download .min-h-0.min-w-0:last-child {
+        grid-template-columns: repeat(2, 1fr);
+        grid-row: 2;
+        grid-column: 1;
+    }
+
+    #report-container:not(.download) .intersection-item {
+        max-width: 160px;
+        max-height: 180px;
+    }
+}
+
+/* Landscape orientation optimizations */
+@media screen and (orientation: landscape) and (min-height: 600px) {
+    #report-container.download {
+        --intersection-size: min(175px, calc((100vh - 3rem) / 5));
+    }
+}
+
+@media screen and (orientation: landscape) and (max-height: 599px) {
+    #report-container.download {
+        --intersection-size: min(150px, calc((100vh - 2.5rem) / 5.5));
+        --padding: 0.3rem;
+        --text-size: 6px;
+        --arrow-size: 13px;
+    }
+}
+
+/* ===========================================
+   8. PRINT STYLES
+   =========================================== */
+/* ===== Print styles ============================================== */
+
+@media print {
+    html, body {
+        width: 11in;
+        height: 8.5in;
+        margin: 0;
+        padding: 0;
+    }
+
+    #report-container.download {
+        --intersection-size: 160px;
+        --padding: 0.4in;
+        --header-col-width: 0.6in;
+        --grid-gap: 0.15rem;
+        --text-size: 6px;
+        --arrow-size: 14px;
+
+        width: 11in !important;
+        height: 8.5in !important;
+        max-width: 11in !important;
+        max-height: 8.5in !important;
+        overflow: visible !important;
+    }
+
+    #report-container.download .min-h-0.min-w-0:last-child {
+        max-height: calc(8.5in - 0.8in) !important;
+        grid-template-rows: repeat(4, minmax(0, 1fr)) !important;
+    }
+
+    * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    .intersection-diagram-container {
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+    }
+
+    .intersection-toggle-btn,
+    .intersection-edit-btn,
+    .global-toggle-btn,
+    .global-toggle-container {
+        display: none !important;
+    }
+
+    .hidden-intersection {
+        visibility: hidden !important;
+    }
+
+    .column-header {
+        background-color: #f8f9fa !important;
+        border-bottom: 2px solid #2980a0 !important;
+    }
+
+    #report-header {
+        background-color: #f8f9fa !important;
+        border-right: 2px solid #2980a0 !important;
+    }
+}
+
+/* ===========================================
+   9. LEGACY/ADDITIONAL STYLES
+   =========================================== */
+
+.intersection-title {
+    background-color: #f5f5f5;
+    padding: 4px 8px;
+    font-weight: bold;
+    border-bottom: 1px solid #ccc;
+    text-align: center;
+    font-size: 11px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.report-columns {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 15px;
+    width: 100%;
+}
+
+.top-section {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    margin-bottom: 25px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    overflow: hidden;
+    background-color: white;
+}
+
+.image-section {
+    width: 50%;
+    padding: 8px;
+    display: flex;
+}
+
+.image-section img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 3px;
+}
+
+.columns-section {
+    width: 50%;
+    padding: 8px;
+    overflow-x: auto;
+}
+
+.report-button {
+    background-color: #f2f9fb;
+    color: #579bb3;
+    border: 2px solid #579bb3;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.report-button:hover {
+    background-color: #579bb3;
+    color: white;
+}
+
+.report-text {
+    color: #579bb3;
+    font-weight: 600;
+}
+
+.container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 15px;
+    width: 100%;
+}
+
+.report-header {
+    text-align: center;
+    padding: 8px 0 15px;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 15px;
+}
+
+.report-title {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+
+.report-subtitle {
+    font-size: 15px;
+    color: #666;
+}

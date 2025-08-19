@@ -1,0 +1,11 @@
+<%= render AuthCardComponent.new header: 'Forgot your password?' do %>
+  <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }, html: { class: 'w-full flex flex-col gap-3' }) do |f| %>
+    <div class="flex flex-col md:flex-row md:items-center gap-3">
+      <%= f.input :email, autofocus: true, label: false, placeholder: 'Enter your email', wrapper_html: { class: 'flex-1' }, input_html: { autocomplete: 'email' } %>
+    </div>
+    <%= render PrimaryButtonComponent.new 'Send me reset password instructions', type: :submit, icon: 'fa-envelope fa-lg' %>
+  <% end %>
+  <div class="flex flex-wrap gap-2 mt-10">
+    <%= render "devise/shared/links" %>
+  </div>
+<% end %>

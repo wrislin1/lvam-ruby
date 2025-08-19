@@ -1,0 +1,29 @@
+<% message ||= nil %>
+<% method ||= :delete %>
+<% turbo = local_assigns.key?(:turbo) ? local_assigns[:turbo] : (method == :delete) %>
+<%= form_with url: @action, method:, html: { data: { turbo_frame: '_top', turbo:, confirmation_modal_target: 'form' } } do |f| %>
+  <% if params.present? %>
+    <% params.each do |k, v| %>
+      <%= f.hidden_field k, value: v %>
+    <% end %>
+  <% end %>
+  <%= f.hidden_field :confirmed, value: 'true' %>
+  <% if message.present? %>
+    <p><%= message.html_safe %></p>
+  <% else %>
+    <p>Are you sure you want to perform this action? It may not be reversible.</p>
+  <% end %>
+  <p class="mt-4">
+    Please enter <strong>confirm</strong> in the input below and click on the <i>Confirm</i> button to continue.
+  </p>
+  <div class="mt-4 relative">
+    <label for=confirm-input class="sr-only">Type confirm here</label>
+    <input type="text" placeholder="Type confirm here..." required data-modal-target="focusInput" data-action="input->confirmation-modal#input" data-confirmation-modal-target="input" id="confirm-input" class="peer bordered-input pl-12" autocomplete="off" pattern="^confirm$">
+    <div class="absolute inset-y-0 start-0 items-center pointer-events-none z-20 ps-4 text-red-500 peer-valid:hidden peer-invalid:flex dark:text-gray-600">
+      <i class="flex-shrink-0 far fa-triangle-exclamation fa-lg"></i>
+    </div>
+    <div class="absolute inset-y-0 start-0 flex items-center pointer-events-none z-20 ps-4 text-green-500 peer-valid:flex peer-invalid:hidden dark:text-gray-600">
+      <i class="flex-shrink-0 far fa-circle-check fa-lg"></i>
+    </div>
+  </div>
+<% end %>

@@ -1,0 +1,18 @@
+<% if un_skipped_errors.any? %>
+  <div class="flex gap-3 p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+    <div class="mt-1 bg-red-100 rounded h-8 w-8 flex items-center justify-center">
+      <i class="far fa-xl text-red-600 fa-exclamation-triangle"></i>
+    </div>
+    <span class="sr-only">Danger</span>
+    <div>
+      <span class="font-medium">Error</span>
+      <ul class="list-disc list-inside">
+        <% @model.errors.each do |err| %>
+          <% unless @skip.include?(err.attribute) %>
+            <li><%= err.full_message %></li>
+          <% end %>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+<% end %>

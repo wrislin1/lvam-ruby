@@ -1,0 +1,6 @@
+<%= render ModalComponent.new header: 'Invite User', id: 'user-modal' do |m| %>
+  <% m.with_actions do %>
+    <%= render FormModalActionsComponent.new %>
+  <% end %>
+  <%= render 'admin/users/form' %>
+<% end %>

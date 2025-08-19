@@ -1,0 +1,51 @@
+<ul role="list" class="divide-y divide-gray-100">
+  <% if subscriptions.blank? %>
+    <li class="text-center text-xs text-gray-500 italic">
+      No subscriptions found
+    </li>
+  <% end %>
+  <% subscriptions.each do |sub| %>
+    <% product = products.find { |p| p.id == sub.plan&.product } %>
+    <% actions = subscription_actions sub %>
+    <% canceled = sub.status == 'canceled' %>
+    <li class="flex items-center justify-between gap-x-6 py-5">
+      <div class="min-w-0">
+        <div class="flex flex-col items-start md:flex-row md:items-start gap-x-3">
+          <p class="text-sm/6 font-semibold text-gray-900"><%= product&.name %></p>
+          <p class="text-sm/6 text-gray-700">(<%= subscription_price_str(sub) %>)</p>
+          <% status_class = canceled ? 'bg-red-50 text-red-700 ring-red-600/20' : 'bg-green-50 text-green-700 ring-green-600/20' %>
+          <p
+            class="mt-0.5 whitespace-nowrap rounded-md px-1.5 py-0.5 text-xs font-medium ring-1 ring-inset <%= status_class %>"
+          >
+            <%= sub.status.titleize %>
+          </p>
+        </div>
+        <div class="mt-1 flex items-center gap-x-2 text-xs/5 text-gray-500">
+          <% created = Time.at(sub.created) %>
+          <% canceled = canceled ? Time.at(sub.canceled_at) : nil %>
+          <p class="whitespace-nowrap">
+            Created <time datetime="<%= created.iso8601 %>"><%= created.to_fs(:us_date) %></time>
+          </p>
+          <% period_end = Time.at(sub.current_period_end) %>
+          <svg viewBox="0 0 2 2" class="size-0.5 fill-current">
+            <circle cx="1" cy="1" r="1" />
+          </svg>
+          <% if canceled %>
+            <p class="whitespace-nowrap">
+              Canceled <time datetime="<%= canceled.iso8601 %>"><%= canceled.to_fs(:us_datetime) %></time>
+            </p>
+          <% else %>
+            <p class="whitespace-nowrap">
+              Next charge on <time datetime="<%= period_end.iso8601 %>"><%= period_end.to_fs(:us_date) %></time>
+            </p>
+          <% end %>
+        </div>
+      </div>
+      <div class="flex flex-none items-center gap-x-4">
+        <div class="relative flex-none">
+          <%= render DropdownComponent.new actions, id: "sub-actions-#{sub.id}", placement: "left", disabled: actions.blank? %>
+        </div>
+      </div>
+    </li>
+  <% end %>
+</ul>

@@ -1,0 +1,631 @@
+HCM 7th Signalized Intersection Summary	Tierra West, LLC
+1: Broadmoor Blvd & Paseo Del Volcan	12/04/2024
+
+
+Movement                          		EBL  	EBT  	EBR  	WBL  	WBT  	WBR  	NBL  	NBT  	NBR  	SBL  	SBT  	SBR
+Lane Configurations               		1    	1    	1    	1    	1    	1    	1    	1>   	0    	1    	1>   	0
+Traffic Volume (veh/h)            		44   	452  	164  	253  	1112 	63   	248  	38   	122  	138  	169  	88
+Future Volume (veh/h)             		44   	452  	164  	253  	1112 	63   	248  	38   	122  	138  	169  	88
+Initial Q (Qb), veh               		0    	0    	0    	0    	0    	0    	0    	0    	0    	0    	0    	0
+Lane Width Adj.                   		1.00 	1.00 	1.00 	1.00 	1.00 	1.00 	1.00 	1.00 	1.00 	1.00 	1.00 	1.00
+Ped-Bike Adj(A_pbT)               		1.00 	     	1.00 	1.00 	     	1.00 	1.00 	     	1.00 	1.00 	     	1.00
+Parking Bus, Adj                  		1.00 	1.00 	1.00 	1.00 	1.00 	1.00 	1.00 	1.00 	1.00 	1.00 	1.00 	1.00
+Work Zone On Approach             		     	No   	     	     	No   	     	     	No   	     	     	No   	
+Adj Sat Flow, veh/h/ln            		1870 	1870 	1870 	1870 	1870 	1870 	1870 	1870 	1870 	1870 	1870 	1870
+Adj Flow Rate, veh/h              		44   	452  	164  	253  	1112 	63   	248  	38   	122  	138  	169  	88
+Peak Hour Factor                  		1.00 	1.00 	1.00 	1.00 	1.00 	1.00 	1.00 	1.00 	1.00 	1.00 	1.00 	1.00
+Percent Heavy Veh, %              		2    	2    	2    	2    	2    	2    	2    	2    	2    	2    	2    	2
+Cap, veh/h                        		108  	845  	716  	400  	917  	777  	226  	65   	210  	301  	197  	103
+Arrive On Green                   		0.03 	0.45 	0.45 	0.06 	0.49 	0.49 	0.07 	0.17 	0.17 	0.08 	0.17 	0.17
+Sat Flow, veh/h                   		1781 	1870 	1585 	1781 	1870 	1585 	1781 	391  	1254 	1781 	1159 	603
+Grp Volume(v), veh/h              		44   	452  	164  	253  	1112 	63   	248  	0    	160  	138  	0    	257
+Grp Sat Flow(s),veh/h/ln          		1781 	1870 	1585 	1781 	1870 	1585 	1781 	0    	1645 	1781 	0    	1762
+Q Serve(g_s), s                   		1.5  	20.3 	7.4  	7.5  	57.0 	2.5  	8.6  	0.0  	10.4 	7.3  	0.0  	16.5
+Cycle Q Clear(g_c), s             		1.5  	20.3 	7.4  	7.5  	57.0 	2.5  	8.6  	0.0  	10.4 	7.3  	0.0  	16.5
+Prop In Lane                      		1.00 	     	1.00 	1.00 	     	1.00 	1.00 	     	0.76 	1.00 	     	0.34
+Lane Grp Cap(c), veh/h            		108  	845  	716  	400  	917  	777  	226  	0    	275  	301  	0    	300
+V/C Ratio(X)                      		0.41 	0.53 	0.23 	0.63 	1.21 	0.08 	1.10 	0.00 	0.58 	0.46 	0.00 	0.86
+Avail Cap(c_a), veh/h             		177  	845  	716  	400  	917  	777  	226  	0    	405  	372  	0    	591
+HCM Platoon Ratio                 		1.00 	1.00 	1.00 	1.00 	1.00 	1.00 	1.00 	1.00 	1.00 	1.00 	1.00 	1.00
+Upstream Filter(I)                		1.00 	1.00 	1.00 	1.00 	1.00 	1.00 	1.00 	0.00 	1.00 	1.00 	0.00 	1.00
+Uniform Delay (d), s/veh          		28.1 	23.0 	19.5 	21.3 	29.6 	15.7 	44.0 	0.0  	44.6 	36.2 	0.0  	46.8
+Incr Delay (d2), s/veh            		2.4  	2.4  	0.7  	3.2  	105.9	0.2  	88.2 	0.0  	1.9  	1.1  	0.0  	7.0
+Initial Q Delay(d3), s/veh        		0.0  	0.0  	0.0  	0.0  	0.0  	0.0  	0.0  	0.0  	0.0  	0.0  	0.0  	0.0
+%ile BackOfQ(95%),veh/ln          		1.2  	13.6 	5.0  	6.8  	70.0 	1.6  	12.8 	0.0  	7.7  	5.8  	0.0  	12.2
+Unsig. Movement Delay, s/veh      		     	     	     	     	     	     	     	     	     	     	     	
+LnGrp Delay(d), s/veh             		30.5 	25.4 	20.2 	24.5 	135.5	15.9 	132.3	0.0  	46.6 	37.2 	0.0  	53.8
+LnGrp LOS                         		C    	C    	C    	C    	F    	B    	F    	     	D    	D    	     	D
+Approach Vol, veh/h               		     	660  	     	     	1428 	     	     	408  	     	     	395  	
+Approach Delay, s/veh             		     	24.5 	     	     	110.6	     	     	98.6 	     	     	48.0 	
+Approach LOS                      		     	C    	     	     	F    	     	     	F    	     	     	D    	
+
+Timer - Assigned Phs              		1    	2    	3    	4    	5    	6    	7    	8
+Phs Duration (G+Y+Rc), s          		15.0 	60.0 	15.0 	26.2 	10.5 	64.5 	15.4 	25.8
+Change Period (Y+Rc), s           		7.5  	7.5  	6.4  	* 6.4	7.5  	7.5  	6.0  	6.4
+Max Green Setting (Gmax), s       		7.5  	52.5 	8.6  	* 39 	7.5  	52.5 	14.0 	28.6
+Max Q Clear Time (g_c+I1), s      		9.5  	22.3 	10.6 	18.5 	3.5  	59.0 	9.3  	12.4
+Green Ext Time (p_c), s           		0.0  	3.0  	0.0  	1.3  	0.0  	0.0  	0.1  	0.7
+
+Intersection Summary
+HCM 7th Control Delay, s/veh      				80.7
+HCM 7th LOS                       				F
+
+Notes
+* HCM 7th computational engine requires equal clearance times for the phases crossing the barrier.
+
+
+Stonegate Subdivision - 2024 Plan	Synchro 12 Report
+2039 PM Peak Hour BUILD Conditions	2024101_Stonegate_2039.syn
+
+HCM 7th Signalized Intersection Summary	Tierra West, LLC
+2: Broadmoor Blvd & Idalia Rd	12/04/2024
+
+
+Movement                          		EBL   	EBT   	EBR   	WBL   	WBT   	WBR   	NBL   	NBT   	NBR   	SBL   	SBT   	SBR
+Lane Configurations               		1     	1>    	0     	1     	1>    	0     	0     	<1    	1     	0     	<1    	1
+Traffic Volume (veh/h)            		33    	263   	9     	206   	378   	203   	10    	963   	204   	160   	784   	119
+Future Volume (veh/h)             		33    	263   	9     	206   	378   	203   	10    	963   	204   	160   	784   	119
+Initial Q (Qb), veh               		0     	0     	0     	0     	0     	0     	0     	0     	0     	0     	0     	0
+Lane Width Adj.                   		1.00  	1.00  	1.00  	1.00  	1.00  	1.00  	1.00  	1.00  	1.00  	1.00  	1.00  	1.00
+Ped-Bike Adj(A_pbT)               		1.00  	      	1.00  	1.00  	      	1.00  	1.00  	      	1.00  	1.00  	      	1.00
+Parking Bus, Adj                  		1.00  	1.00  	1.00  	1.00  	1.00  	1.00  	1.00  	1.00  	1.00  	1.00  	1.00  	1.00
+Work Zone On Approach             		      	No    	      	      	No    	      	      	No    	      	      	No    	
+Adj Sat Flow, veh/h/ln            		1870  	1870  	1870  	1870  	1870  	1870  	1870  	1870  	1870  	1870  	1870  	1870
+Adj Flow Rate, veh/h              		33    	263   	9     	206   	378   	203   	10    	963   	204   	160   	784   	119
+Peak Hour Factor                  		1.00  	1.00  	1.00  	1.00  	1.00  	1.00  	1.00  	1.00  	1.00  	1.00  	1.00  	1.00
+Percent Heavy Veh, %              		2     	2     	2     	2     	2     	2     	2     	2     	2     	2     	2     	2
+Cap, veh/h                        		135   	313   	11    	308   	287   	154   	45    	615   	758   	52    	52    	758
+Arrive On Green                   		0.03  	0.17  	0.17  	0.10  	0.25  	0.25  	0.48  	0.48  	0.48  	0.48  	0.48  	0.48
+Sat Flow, veh/h                   		1781  	1798  	62    	1781  	1145  	615   	0     	1286  	1585  	0     	109   	1585
+Grp Volume(v), veh/h              		33    	0     	272   	206   	0     	581   	973   	0     	204   	944   	0     	119
+Grp Sat Flow(s),veh/h/ln          		1781  	0     	1859  	1781  	0     	1760  	1286  	0     	1585  	109   	0     	1585
+Q Serve(g_s), s                   		1.2   	0.0   	11.4  	7.4   	0.0   	20.2  	0.0   	0.0   	6.2   	0.0   	0.0   	3.4
+Cycle Q Clear(g_c), s             		1.2   	0.0   	11.4  	7.4   	0.0   	20.2  	38.6  	0.0   	6.2   	38.6  	0.0   	3.4
+Prop In Lane                      		1.00  	      	0.03  	1.00  	      	0.35  	0.01  	      	1.00  	0.17  	      	1.00
+Lane Grp Cap(c), veh/h            		135   	0     	323   	308   	0     	441   	660   	0     	758   	104   	0     	758
+V/C Ratio(X)                      		0.24  	0.00  	0.84  	0.67  	0.00  	1.32  	1.47  	0.00  	0.27  	9.04  	0.00  	0.16
+Avail Cap(c_a), veh/h             		272   	0     	421   	308   	0     	441   	660   	0     	758   	104   	0     	758
+HCM Platoon Ratio                 		1.00  	1.00  	1.00  	1.00  	1.00  	1.00  	1.00  	1.00  	1.00  	1.00  	1.00  	1.00
+Upstream Filter(I)                		1.00  	0.00  	1.00  	1.00  	0.00  	1.00  	1.00  	0.00  	1.00  	1.00  	0.00  	1.00
+Uniform Delay (d), s/veh          		27.6  	0.0   	32.3  	23.9  	0.0   	30.2  	23.3  	0.0   	12.6  	21.6  	0.0   	11.9
+Incr Delay (d2), s/veh            		0.9   	0.0   	11.3  	5.5   	0.0   	157.8 	221.7 	0.0   	0.9   	3636.8	0.0   	0.4
+Initial Q Delay(d3), s/veh        		0.0   	0.0   	0.0   	0.0   	0.0   	0.0   	0.0   	0.0   	0.0   	0.0   	0.0   	0.0
+%ile BackOfQ(95%),veh/ln          		1.0   	0.0   	9.9   	6.2   	0.0   	41.7  	79.3  	0.0   	4.0   	179.7 	0.0   	2.2
+Unsig. Movement Delay, s/veh      		      	      	      	      	      	      	      	      	      	      	      	
+LnGrp Delay(d), s/veh             		28.5  	0.0   	43.6  	29.4  	0.0   	188.0 	245.1 	0.0   	13.5  	3658.4	0.0   	12.3
+LnGrp LOS                         		C     	      	D     	C     	      	F     	F     	      	B     	F     	      	B
+Approach Vol, veh/h               		      	305   	      	      	787   	      	      	1177  	      	      	1063  	
+Approach Delay, s/veh             		      	42.0  	      	      	146.5 	      	      	204.9 	      	      	3250.2	
+Approach LOS                      		      	D     	      	      	F     	      	      	F     	      	      	F     	
+
+Timer - Assigned Phs              		      	2     	3     	4     	      	6     	7     	8
+Phs Duration (G+Y+Rc), s          		      	45.0  	15.0  	20.7  	      	45.0  	8.8   	26.9
+Change Period (Y+Rc), s           		      	6.4   	6.7   	6.7   	      	6.4   	6.7   	6.7
+Max Green Setting (Gmax), s       		      	38.6  	8.3   	18.3  	      	38.6  	8.3   	18.3
+Max Q Clear Time (g_c+I1), s      		      	40.6  	9.4   	13.4  	      	40.6  	3.2   	22.2
+Green Ext Time (p_c), s           		      	0.0   	0.0   	0.6   	      	0.0   	0.0   	0.0
+
+Intersection Summary
+HCM 7th Control Delay, s/veh      				1147.7
+HCM 7th LOS                       				F
+
+
+Stonegate Subdivision - 2024 Plan	Synchro 12 Report
+2039 PM Peak Hour BUILD Conditions	2024101_Stonegate_2039.syn
+
+HCM 7th Signalized Intersection Summary	Tierra West, LLC
+3: Broadmoor Blvd./Broadmoor Dr & Northern Blvd	12/04/2024
+
+
+Movement                          		EBL   	EBT   	EBR   	WBL   	WBT   	WBR   	NBL   	NBT   	NBR   	SBL   	SBT   	SBR
+Lane Configurations               		1     	2     	1     	1     	2     	1     	1     	2     	1     	1     	2     	1
+Traffic Volume (veh/h)            		27    	332   	234   	159   	703   	293   	445   	774   	108   	154   	713   	41
+Future Volume (veh/h)             		27    	332   	234   	159   	703   	293   	445   	774   	108   	154   	713   	41
+Initial Q (Qb), veh               		0     	0     	0     	0     	0     	0     	0     	0     	0     	0     	0     	0
+Lane Width Adj.                   		1.00  	1.00  	1.00  	1.00  	1.00  	1.00  	1.00  	1.00  	1.00  	1.00  	1.00  	1.00
+Ped-Bike Adj(A_pbT)               		1.00  	      	1.00  	1.00  	      	1.00  	1.00  	      	1.00  	1.00  	      	1.00
+Parking Bus, Adj                  		1.00  	1.00  	1.00  	1.00  	1.00  	1.00  	1.00  	1.00  	1.00  	1.00  	1.00  	1.00
+Work Zone On Approach             		      	No    	      	      	No    	      	      	No    	      	      	No    	
+Adj Sat Flow, veh/h/ln            		1870  	1870  	1870  	1870  	1870  	1870  	1870  	1870  	1870  	1870  	1870  	1870
+Adj Flow Rate, veh/h              		27    	332   	234   	159   	703   	293   	445   	774   	108   	154   	713   	41
+Peak Hour Factor                  		1.00  	1.00  	1.00  	1.00  	1.00  	1.00  	1.00  	1.00  	1.00  	1.00  	1.00  	1.00
+Percent Heavy Veh, %              		2     	2     	2     	2     	2     	2     	2     	2     	2     	2     	2     	2
+Cap, veh/h                        		235   	1088  	485   	421   	1300  	580   	348   	874   	390   	264   	662   	295
+Arrive On Green                   		0.02  	0.31  	0.31  	0.08  	0.37  	0.37  	0.15  	0.25  	0.25  	0.09  	0.19  	0.19
+Sat Flow, veh/h                   		1781  	3554  	1585  	1781  	3554  	1585  	1781  	3554  	1585  	1781  	3554  	1585
+Grp Volume(v), veh/h              		27    	332   	234   	159   	703   	293   	445   	774   	108   	154   	713   	41
+Grp Sat Flow(s),veh/h/ln          		1781  	1777  	1585  	1781  	1777  	1585  	1781  	1777  	1585  	1781  	1777  	1585
+Q Serve(g_s), s                   		1.0   	6.6   	11.1  	5.5   	14.5  	13.3  	14.0  	19.4  	5.1   	6.3   	17.2  	2.0
+Cycle Q Clear(g_c), s             		1.0   	6.6   	11.1  	5.5   	14.5  	13.3  	14.0  	19.4  	5.1   	6.3   	17.2  	2.0
+Prop In Lane                      		1.00  	      	1.00  	1.00  	      	1.00  	1.00  	      	1.00  	1.00  	      	1.00
+Lane Grp Cap(c), veh/h            		235   	1088  	485   	421   	1300  	580   	348   	874   	390   	264   	662   	295
+V/C Ratio(X)                      		0.11  	0.31  	0.48  	0.38  	0.54  	0.51  	1.28  	0.89  	0.28  	0.58  	1.08  	0.14
+Avail Cap(c_a), veh/h             		453   	1088  	485   	532   	1300  	580   	348   	923   	411   	370   	662   	295
+HCM Platoon Ratio                 		1.00  	1.00  	1.00  	1.00  	1.00  	1.00  	1.00  	1.00  	1.00  	1.00  	1.00  	1.00
+Upstream Filter(I)                		1.00  	1.00  	1.00  	1.00  	1.00  	1.00  	1.00  	1.00  	1.00  	1.00  	1.00  	1.00
+Uniform Delay (d), s/veh          		21.7  	24.6  	26.1  	18.9  	23.2  	22.8  	26.3  	33.6  	28.2  	27.7  	37.6  	31.4
+Incr Delay (d2), s/veh            		0.2   	0.7   	3.4   	0.6   	1.6   	3.1   	146.4 	10.0  	0.4   	2.0   	57.4  	0.2
+Initial Q Delay(d3), s/veh        		0.0   	0.0   	0.0   	0.0   	0.0   	0.0   	0.0   	0.0   	0.0   	0.0   	0.0   	0.0
+%ile BackOfQ(95%),veh/ln          		0.7   	5.0   	7.9   	3.9   	10.0  	8.9   	30.3  	14.1  	3.4   	4.9   	18.9  	1.4
+Unsig. Movement Delay, s/veh      		      	      	      	      	      	      	      	      	      	      	      	
+LnGrp Delay(d), s/veh             		21.9  	25.3  	29.5  	19.4  	24.8  	25.9  	172.7 	43.6  	28.6  	29.8  	95.1  	31.6
+LnGrp LOS                         		C     	C     	C     	B     	C     	C     	F     	D     	C     	C     	F     	C
+Approach Vol, veh/h               		      	593   	      	      	1155  	      	      	1327  	      	      	908   	
+Approach Delay, s/veh             		      	26.8  	      	      	24.3  	      	      	85.7  	      	      	81.1  	
+Approach LOS                      		      	C     	      	      	C     	      	      	F     	      	      	F     	
+
+Timer - Assigned Phs              		1     	2     	3     	4     	5     	6     	7     	8
+Phs Duration (G+Y+Rc), s          		14.2  	35.0  	20.0  	23.2  	8.7   	40.5  	14.5  	28.7
+Change Period (Y+Rc), s           		6.7   	6.7   	6.0   	6.0   	6.7   	6.7   	6.0   	6.0
+Max Green Setting (Gmax), s       		13.3  	28.3  	14.0  	14.0  	13.3  	28.3  	14.0  	24.0
+Max Q Clear Time (g_c+I1), s      		7.5   	13.1  	16.0  	19.2  	3.0   	16.5  	8.3   	21.4
+Green Ext Time (p_c), s           		0.2   	2.5   	0.0   	0.0   	0.0   	4.4   	0.2   	1.3
+
+Intersection Summary
+HCM 7th Control Delay, s/veh      				58.1
+HCM 7th LOS                       				E
+
+
+Stonegate Subdivision - 2024 Plan	Synchro 12 Report
+2039 PM Peak Hour BUILD Conditions	2024101_Stonegate_2039.syn
+
+HCM 7th TWSC	Tierra West, LLC
+4: Broadmoor Blvd & Montezuma Blvd	12/04/2024
+
+
+
+Intersection                      		      	      	      	      	      	      	      	      	      	      	      	
+Int Delay, s/veh                  		1.7   	      	      	      	      	      	      	      	      	      	      	
+
+Movement                          		EBL   	EBT   	EBR   	WBL   	WBT   	WBR   	NBL   	NBT   	NBR   	SBL   	SBT   	SBR
+Lane Configurations               		0     	<1>   	0     	1     	1>    	0     	0     	<1>   	0     	0     	<1>   	0
+Traffic Vol, veh/h                		1     	1     	17    	47    	1     	1     	17    	469   	74    	1     	614   	23
+Future Vol, veh/h                 		1     	1     	17    	47    	1     	1     	17    	469   	74    	1     	614   	23
+Conflicting Peds, #/hr            		0     	0     	0     	0     	0     	0     	0     	0     	0     	0     	0     	0
+Sign Control                      		Stop  	Stop  	Stop  	Stop  	Stop  	Stop  	Free  	Free  	Free  	Free  	Free  	Free
+RT Channelized                    		-     	-     	None  	-     	-     	None  	-     	-     	None  	-     	-     	None
+Storage Length                    		-     	-     	-     	250   	-     	-     	-     	-     	-     	-     	-     	-
+Veh in Median Storage, #          		-     	0     	-     	-     	0     	-     	-     	0     	-     	-     	0     	-
+Grade, %                          		-     	0     	-     	-     	0     	-     	-     	0     	-     	-     	0     	-
+Peak Hour Factor                  		100   	100   	100   	100   	100   	100   	100   	100   	100   	100   	100   	100
+Heavy Vehicles, %                 		2     	2     	2     	2     	2     	2     	2     	2     	2     	2     	2     	2
+Mvmt Flow                         		1     	1     	17    	47    	1     	1     	17    	469   	74    	1     	614   	23
+                                  		      	      	      	      	      	      	      	      	      	      	      	
+
+Major/Minor                       		Minor2	      	      	Minor1	      	      	Major1	      	      	Major2	      	
+Conflicting Flow All              		1131  	1205  	626   	1157  	1179  	506   	637   	0     	0     	543   	0     	0
+          Stage 1                 		628   	628   	-     	540   	540   	-     	-     	-     	-     	-     	-     	-
+          Stage 2                 		504   	577   	-     	617   	639   	-     	-     	-     	-     	-     	-     	-
+Critical Hdwy                     		7.12  	6.52  	6.22  	7.12  	6.52  	6.22  	4.12  	-     	-     	4.12  	-     	-
+Critical Hdwy Stg 1               		6.12  	5.52  	-     	6.12  	5.52  	-     	-     	-     	-     	-     	-     	-
+Critical Hdwy Stg 2               		6.12  	5.52  	-     	6.12  	5.52  	-     	-     	-     	-     	-     	-     	-
+Follow-up Hdwy                    		3.518 	4.018 	3.318 	3.518 	4.018 	3.318 	2.218 	-     	-     	2.218 	-     	-
+Pot Cap-1 Maneuver                		181   	184   	484   	173   	190   	566   	947   	-     	-     	1026  	-     	-
+          Stage 1                 		471   	476   	-     	526   	521   	-     	-     	-     	-     	-     	-     	-
+          Stage 2                 		550   	502   	-     	478   	470   	-     	-     	-     	-     	-     	-     	-
+Platoon blocked, %                		      	      	      	      	      	      	      	-     	-     	      	-     	-
+Mov Cap-1 Maneuver                		174   	179   	484   	162   	185   	566   	947   	-     	-     	1026  	-     	-
+Mov Cap-2 Maneuver                		174   	179   	-     	162   	185   	-     	-     	-     	-     	-     	-     	-
+          Stage 1                 		470   	475   	-     	512   	508   	-     	-     	-     	-     	-     	-     	-
+          Stage 2                 		534   	489   	-     	459   	470   	-     	-     	-     	-     	-     	-     	-
+                                  		      	      	      	      	      	      	      	      	      	      	      	
+
+Approach                          		EB    	      	      	WB    	      	      	NB    	      	      	SB    	      	
+HCM Ctrl Dly, s/v                 		14.22 	      	      	35.35 	      	      	0.27  	      	      	0.01  	      	
+HCM LOS                           		B     	      	      	E     	      	      	      	      	      	      	      	
+                                  		      	      	      	      	      	      	      	      	      	      	      	
+
+Minor Lane/Major Mvmt             		      	NBL   	NBT   	NBR   	EBLn1 	WBLn1 	WBLn2 	SBL   	SBT   	SBR
+Capacity (veh/h)                  		      	53    	-     	-     	409   	162   	279   	3     	-     	-
+HCM Lane V/C Ratio                		      	0.018 	-     	-     	0.046 	0.29  	0.007 	0.001 	-     	-
+HCM Ctrl Dly (s/v)                		      	8.9   	0     	-     	14.2  	36.1  	18    	8.5   	0     	-
+HCM Lane LOS                      		      	A     	A     	-     	B     	E     	C     	A     	A     	-
+HCM 95th %tile Q(veh)             		      	0.1   	-     	-     	0.1   	1.1   	0     	0     	-     	-
+
+
+Stonegate Subdivision - 2024 Plan	Synchro 12 Report
+2039 PM Peak Hour BUILD Conditions	2024101_Stonegate_2039.syn
+
+HCM 7th TWSC	Tierra West, LLC
+5: Broadmoor Blvd & Leeds Castle Ave	12/04/2024
+
+
+
+Intersection                      		      	      	      	      	      	
+Int Delay, s/veh                  		7.2   	      	      	      	      	
+
+Movement                          		EBL   	EBR   	NBL   	NBT   	SBT   	SBR
+Lane Configurations               		1     	1     	1     	1     	1     	1
+Traffic Vol, veh/h                		45    	191   	285   	528   	637   	79
+Future Vol, veh/h                 		45    	191   	285   	528   	637   	79
+Conflicting Peds, #/hr            		0     	0     	0     	0     	0     	0
+Sign Control                      		Stop  	Stop  	Free  	Free  	Free  	Free
+RT Channelized                    		-     	None  	-     	None  	-     	None
+Storage Length                    		300   	0     	300   	-     	-     	300
+Veh in Median Storage, #          		0     	-     	-     	0     	0     	-
+Grade, %                          		0     	-     	-     	0     	0     	-
+Peak Hour Factor                  		100   	100   	100   	100   	100   	100
+Heavy Vehicles, %                 		2     	2     	2     	2     	2     	2
+Mvmt Flow                         		45    	191   	285   	528   	637   	79
+                                  		      	      	      	      	      	
+
+Major/Minor                       		Minor2	      	Major1	      	Major2	
+Conflicting Flow All              		1735  	637   	716   	0     	-     	0
+          Stage 1                 		637   	-     	-     	-     	-     	-
+          Stage 2                 		1098  	-     	-     	-     	-     	-
+Critical Hdwy                     		6.42  	6.22  	4.12  	-     	-     	-
+Critical Hdwy Stg 1               		5.42  	-     	-     	-     	-     	-
+Critical Hdwy Stg 2               		5.42  	-     	-     	-     	-     	-
+Follow-up Hdwy                    		3.518 	3.318 	2.218 	-     	-     	-
+Pot Cap-1 Maneuver                		96    	477   	885   	-     	-     	-
+          Stage 1                 		527   	-     	-     	-     	-     	-
+          Stage 2                 		319   	-     	-     	-     	-     	-
+Platoon blocked, %                		      	      	      	-     	-     	-
+Mov Cap-1 Maneuver                		65    	477   	885   	-     	-     	-
+Mov Cap-2 Maneuver                		65    	-     	-     	-     	-     	-
+          Stage 1                 		357   	-     	-     	-     	-     	-
+          Stage 2                 		319   	-     	-     	-     	-     	-
+                                  		      	      	      	      	      	
+
+Approach                          		EB    	      	NB    	      	SB    	
+HCM Ctrl Dly, s/v                 		40.58 	      	3.85  	      	0     	
+HCM LOS                           		E     	      	      	      	      	
+                                  		      	      	      	      	      	
+
+Minor Lane/Major Mvmt             		      	NBL   	NBT   	EBLn1 	EBLn2 	SBT   	SBR
+Capacity (veh/h)                  		      	885   	-     	65    	477   	-     	-
+HCM Lane V/C Ratio                		      	0.322 	-     	0.689 	0.4   	-     	-
+HCM Ctrl Dly (s/v)                		      	11    	-     	138.6 	17.5  	-     	-
+HCM Lane LOS                      		      	B     	-     	F     	C     	-     	-
+HCM 95th %tile Q(veh)             		      	1.4   	-     	3     	1.9   	-     	-
+
+
+Stonegate Subdivision - 2024 Plan	Synchro 12 Report
+2039 PM Peak Hour BUILD Conditions	2024101_Stonegate_2039.syn
+
+HCM 7th TWSC	Tierra West, LLC
+6: Broadmoor Blvd & Cardiff Ave	12/04/2024
+
+
+
+Intersection                      		       	       	       	       	       	
+Int Delay, s/veh                  		8.1    	       	       	       	       	
+
+Movement                          		EBL    	EBR    	NBL    	NBT    	SBT    	SBR
+Lane Configurations               		1      	1      	1      	1      	1      	1
+Traffic Vol, veh/h                		15     	242    	394    	805    	794    	60
+Future Vol, veh/h                 		15     	242    	394    	805    	794    	60
+Conflicting Peds, #/hr            		0      	0      	0      	0      	0      	0
+Sign Control                      		Stop   	Stop   	Free   	Free   	Free   	Free
+RT Channelized                    		-      	None   	-      	None   	-      	None
+Storage Length                    		80     	0      	330    	-      	-      	290
+Veh in Median Storage, #          		0      	-      	-      	0      	0      	-
+Grade, %                          		0      	-      	-      	0      	0      	-
+Peak Hour Factor                  		100    	100    	100    	100    	100    	100
+Heavy Vehicles, %                 		2      	2      	2      	2      	2      	2
+Mvmt Flow                         		15     	242    	394    	805    	794    	60
+                                  		       	       	       	       	       	
+
+Major/Minor                       		Minor2 	       	Major1 	       	Major2 	
+Conflicting Flow All              		2387   	794    	854    	0      	-      	0
+          Stage 1                 		794    	-      	-      	-      	-      	-
+          Stage 2                 		1593   	-      	-      	-      	-      	-
+Critical Hdwy                     		6.42   	6.22   	4.12   	-      	-      	-
+Critical Hdwy Stg 1               		5.42   	-      	-      	-      	-      	-
+Critical Hdwy Stg 2               		5.42   	-      	-      	-      	-      	-
+Follow-up Hdwy                    		3.518  	3.318  	2.218  	-      	-      	-
+Pot Cap-1 Maneuver                		37     	388    	785    	-      	-      	-
+          Stage 1                 		445    	-      	-      	-      	-      	-
+          Stage 2                 		183    	-      	-      	-      	-      	-
+Platoon blocked, %                		       	       	       	-      	-      	-
+Mov Cap-1 Maneuver                		19     	388    	785    	-      	-      	-
+Mov Cap-2 Maneuver                		19     	-      	-      	-      	-      	-
+          Stage 1                 		222    	-      	-      	-      	-      	-
+          Stage 2                 		183    	-      	-      	-      	-      	-
+                                  		       	       	       	       	       	
+
+Approach                          		EB     	       	NB     	       	SB     	
+HCM Ctrl Dly, s/v                 		51.4   	       	4.63   	       	0      	
+HCM LOS                           		F      	       	       	       	       	
+                                  		       	       	       	       	       	
+
+Minor Lane/Major Mvmt             		       	NBL    	NBT    	EBLn1  	EBLn2  	SBT    	SBR
+Capacity (veh/h)                  		       	785    	-      	19     	388    	-      	-
+HCM Lane V/C Ratio                		       	0.502  	-      	0.804  	0.624  	-      	-
+HCM Ctrl Dly (s/v)                		       	14.1   	-      	$ 421.4	28.5   	-      	-
+HCM Lane LOS                      		       	B      	-      	F      	D      	-      	-
+HCM 95th %tile Q(veh)             		       	2.9    	-      	2.2    	4.1    	-      	-
+
+
+Stonegate Subdivision - 2024 Plan	Synchro 12 Report
+2039 PM Peak Hour BUILD Conditions	2024101_Stonegate_2039.syn
+
+HCM 7th TWSC	Tierra West, LLC
+7: Broadmoor Blvd & Inca	12/04/2024
+
+
+
+Intersection                      		       	       	       	       	       	
+Int Delay, s/veh                  		1.3    	       	       	       	       	
+
+Movement                          		EBL    	EBR    	NBL    	NBT    	SBT    	SBR
+Lane Configurations               		1>     	0      	0      	<1     	1>     	0
+Traffic Vol, veh/h                		3      	43     	114    	1201   	962    	17
+Future Vol, veh/h                 		3      	43     	114    	1201   	962    	17
+Conflicting Peds, #/hr            		0      	0      	0      	0      	0      	0
+Sign Control                      		Stop   	Stop   	Free   	Free   	Free   	Free
+RT Channelized                    		-      	None   	-      	None   	-      	None
+Storage Length                    		0      	-      	-      	-      	-      	-
+Veh in Median Storage, #          		0      	-      	-      	0      	0      	-
+Grade, %                          		0      	-      	-      	0      	0      	-
+Peak Hour Factor                  		100    	100    	100    	100    	100    	100
+Heavy Vehicles, %                 		2      	2      	2      	2      	2      	2
+Mvmt Flow                         		3      	43     	114    	1201   	962    	17
+                                  		       	       	       	       	       	
+
+Major/Minor                       		Minor2 	       	Major1 	       	Major2 	
+Conflicting Flow All              		2400   	971    	979    	0      	-      	0
+          Stage 1                 		971    	-      	-      	-      	-      	-
+          Stage 2                 		1429   	-      	-      	-      	-      	-
+Critical Hdwy                     		6.42   	6.22   	4.12   	-      	-      	-
+Critical Hdwy Stg 1               		5.42   	-      	-      	-      	-      	-
+Critical Hdwy Stg 2               		5.42   	-      	-      	-      	-      	-
+Follow-up Hdwy                    		3.518  	3.318  	2.218  	-      	-      	-
+Pot Cap-1 Maneuver                		37     	307    	705    	-      	-      	-
+          Stage 1                 		367    	-      	-      	-      	-      	-
+          Stage 2                 		221    	-      	-      	-      	-      	-
+Platoon blocked, %                		       	       	       	-      	-      	-
+Mov Cap-1 Maneuver                		19     	307    	705    	-      	-      	-
+Mov Cap-2 Maneuver                		19     	-      	-      	-      	-      	-
+          Stage 1                 		189    	-      	-      	-      	-      	-
+          Stage 2                 		221    	-      	-      	-      	-      	-
+                                  		       	       	       	       	       	
+
+Approach                          		EB     	       	NB     	       	SB     	
+HCM Ctrl Dly, s/v                 		38.05  	       	0.96   	       	0      	
+HCM LOS                           		E      	       	       	       	       	
+                                  		       	       	       	       	       	
+
+Minor Lane/Major Mvmt             		       	NBL    	NBT    	EBLn1  	SBT    	SBR
+Capacity (veh/h)                  		       	156    	-      	154    	-      	-
+HCM Lane V/C Ratio                		       	0.162  	-      	0.299  	-      	-
+HCM Ctrl Dly (s/v)                		       	11.1   	0      	38.1   	-      	-
+HCM Lane LOS                      		       	B      	A      	E      	-      	-
+HCM 95th %tile Q(veh)             		       	0.6    	-      	1.2    	-      	-
+
+
+Stonegate Subdivision - 2024 Plan	Synchro 12 Report
+2039 PM Peak Hour BUILD Conditions	2024101_Stonegate_2039.syn
+
+HCM 7th TWSC	Tierra West, LLC
+8: Northern Blvd. & Edinburgh St	12/04/2024
+
+
+
+Intersection                      		        	        	        	        	        	
+Int Delay, s/veh                  		72.2    	        	        	        	        	
+
+Movement                          		EBL     	EBT     	WBT     	WBR     	SBL     	SBR
+Lane Configurations               		0       	<2      	1>      	0       	1       	1
+Traffic Vol, veh/h                		107     	757     	1407    	137     	129     	107
+Future Vol, veh/h                 		107     	757     	1407    	137     	129     	107
+Conflicting Peds, #/hr            		0       	0       	0       	0       	0       	0
+Sign Control                      		Free    	Free    	Free    	Free    	Stop    	Stop
+RT Channelized                    		-       	None    	-       	None    	-       	None
+Storage Length                    		-       	-       	-       	-       	50      	-
+Veh in Median Storage, #          		-       	0       	0       	-       	0       	-
+Grade, %                          		-       	0       	0       	-       	0       	-
+Peak Hour Factor                  		100     	100     	100     	100     	100     	100
+Heavy Vehicles, %                 		2       	2       	2       	2       	2       	2
+Mvmt Flow                         		107     	757     	1407    	137     	129     	107
+                                  		        	        	        	        	        	
+
+Major/Minor                       		Major1  	        	Major2  	        	Minor2  	
+Conflicting Flow All              		1544    	0       	-       	0       	2068    	1476
+          Stage 1                 		-       	-       	-       	-       	1476    	-
+          Stage 2                 		-       	-       	-       	-       	593     	-
+Critical Hdwy                     		4.13    	-       	-       	-       	6.63    	6.23
+Critical Hdwy Stg 1               		-       	-       	-       	-       	5.43    	-
+Critical Hdwy Stg 2               		-       	-       	-       	-       	5.83    	-
+Follow-up Hdwy                    		2.219   	-       	-       	-       	3.519   	3.319
+Pot Cap-1 Maneuver                		428     	-       	-       	-       	~ 53    	154
+          Stage 1                 		-       	-       	-       	-       	209     	-
+          Stage 2                 		-       	-       	-       	-       	516     	-
+Platoon blocked, %                		        	-       	-       	-       	        	
+Mov Cap-1 Maneuver                		428     	-       	-       	-       	~ 36    	154
+Mov Cap-2 Maneuver                		-       	-       	-       	-       	~ 36    	-
+          Stage 1                 		-       	-       	-       	-       	143     	-
+          Stage 2                 		-       	-       	-       	-       	516     	-
+                                  		        	        	        	        	        	
+
+Approach                          		EB      	        	WB      	        	SB      	
+HCM Ctrl Dly, s/v                 		5.51    	        	0       	        	$ 789.07	
+HCM LOS                           		        	        	        	        	F       	
+                                  		        	        	        	        	        	
+
+Minor Lane/Major Mvmt             		        	EBL     	EBT     	WBT     	WBR     	SBLn1   	SBLn2
+Capacity (veh/h)                  		        	338     	-       	-       	-       	36      	154
+HCM Lane V/C Ratio                		        	0.25    	-       	-       	-       	3.571   	0.693
+HCM Ctrl Dly (s/v)                		        	16.2    	4       	-       	-       	$ 1386.4	68.9
+HCM Lane LOS                      		        	C       	A       	-       	-       	F       	F
+HCM 95th %tile Q(veh)             		        	1       	-       	-       	-       	14.9    	4
+
+Notes
+~: Volume exceeds capacity       $: Delay exceeds 300s
++: Computation Not Defined       *: All major volume in platoon
+
+
+Stonegate Subdivision - 2024 Plan	Synchro 12 Report
+2039 PM Peak Hour BUILD Conditions	2024101_Stonegate_2039.syn
+
+HCM 7th TWSC	Tierra West, LLC
+9: Edinburgh St & Cardiff Ave	12/04/2024
+
+
+
+Intersection                      		        	        	        	        	        	        	        	        	        	        	        	
+Int Delay, s/veh                  		9.9     	        	        	        	        	        	        	        	        	        	        	
+
+Movement                          		EBL     	EBT     	EBR     	WBL     	WBT     	WBR     	NBL     	NBT     	NBR     	SBL     	SBT     	SBR
+Lane Configurations               		1       	1>      	0       	1       	1>      	0       	0       	<1>     	0       	0       	<1>     	0
+Traffic Vol, veh/h                		45      	76      	33      	15      	107     	167     	45      	82      	29      	146     	70      	56
+Future Vol, veh/h                 		45      	76      	33      	15      	107     	167     	45      	82      	29      	146     	70      	56
+Conflicting Peds, #/hr            		0       	0       	0       	0       	0       	0       	0       	0       	0       	0       	0       	0
+Sign Control                      		Free    	Free    	Free    	Free    	Free    	Free    	Stop    	Stop    	Stop    	Stop    	Stop    	Stop
+RT Channelized                    		-       	-       	None    	-       	-       	None    	-       	-       	None    	-       	-       	None
+Storage Length                    		170     	-       	-       	100     	-       	-       	-       	-       	-       	-       	-       	-
+Veh in Median Storage, #          		-       	0       	-       	-       	0       	-       	-       	0       	-       	-       	0       	-
+Grade, %                          		-       	0       	-       	-       	0       	-       	-       	0       	-       	-       	0       	-
+Peak Hour Factor                  		100     	100     	100     	100     	100     	100     	100     	100     	100     	100     	100     	100
+Heavy Vehicles, %                 		2       	2       	2       	2       	2       	2       	2       	2       	2       	2       	2       	2
+Mvmt Flow                         		45      	76      	33      	15      	107     	167     	45      	82      	29      	146     	70      	56
+                                  		        	        	        	        	        	        	        	        	        	        	        	
+
+Major/Minor                       		Major1  	        	        	Major2  	        	        	Minor1  	        	        	Minor2  	        	
+Conflicting Flow All              		274     	0       	0       	109     	0       	0       	355     	487     	93      	428     	420     	191
+          Stage 1                 		-       	-       	-       	-       	-       	-       	183     	183     	-       	221     	221     	-
+          Stage 2                 		-       	-       	-       	-       	-       	-       	172     	304     	-       	207     	199     	-
+Critical Hdwy                     		4.12    	-       	-       	4.12    	-       	-       	7.12    	6.52    	6.22    	7.12    	6.52    	6.22
+Critical Hdwy Stg 1               		-       	-       	-       	-       	-       	-       	6.12    	5.52    	-       	6.12    	5.52    	-
+Critical Hdwy Stg 2               		-       	-       	-       	-       	-       	-       	6.12    	5.52    	-       	6.12    	5.52    	-
+Follow-up Hdwy                    		2.218   	-       	-       	2.218   	-       	-       	3.518   	4.018   	3.318   	3.518   	4.018   	3.318
+Pot Cap-1 Maneuver                		1289    	-       	-       	1481    	-       	-       	601     	481     	965     	537     	525     	851
+          Stage 1                 		-       	-       	-       	-       	-       	-       	819     	749     	-       	782     	721     	-
+          Stage 2                 		-       	-       	-       	-       	-       	-       	830     	663     	-       	795     	736     	-
+Platoon blocked, %                		        	-       	-       	        	-       	-       	        	        	        	        	        	
+Mov Cap-1 Maneuver                		1289    	-       	-       	1481    	-       	-       	464     	460     	965     	412     	501     	851
+Mov Cap-2 Maneuver                		-       	-       	-       	-       	-       	-       	464     	460     	-       	412     	501     	-
+          Stage 1                 		-       	-       	-       	-       	-       	-       	791     	722     	-       	774     	713     	-
+          Stage 2                 		-       	-       	-       	-       	-       	-       	692     	656     	-       	660     	711     	-
+                                  		        	        	        	        	        	        	        	        	        	        	        	
+
+Approach                          		EB      	        	        	WB      	        	        	NB      	        	        	SB      	        	
+HCM Ctrl Dly, s/v                 		2.31    	        	        	0.39    	        	        	15.12   	        	        	21.39   	        	
+HCM LOS                           		        	        	        	        	        	        	C       	        	        	C       	        	
+                                  		        	        	        	        	        	        	        	        	        	        	        	
+
+Minor Lane/Major Mvmt             		        	NBLn1   	EBL     	EBT     	EBR     	WBL     	WBT     	WBR     	SBLn1
+Capacity (veh/h)                  		        	511     	1289    	-       	-       	1481    	-       	-       	486
+HCM Lane V/C Ratio                		        	0.305   	0.035   	-       	-       	0.01    	-       	-       	0.559
+HCM Ctrl Dly (s/v)                		        	15.1    	7.9     	-       	-       	7.5     	-       	-       	21.4
+HCM Lane LOS                      		        	C       	A       	-       	-       	A       	-       	-       	C
+HCM 95th %tile Q(veh)             		        	1.3     	0.1     	-       	-       	0       	-       	-       	3.4
+
+
+Stonegate Subdivision - 2024 Plan	Synchro 12 Report
+2039 PM Peak Hour BUILD Conditions	2024101_Stonegate_2039.syn
+
+HCM 7th TWSC	Tierra West, LLC
+10: Edinburgh St & Leeds Castle Ave	12/04/2024
+
+
+
+Intersection                      		        	        	        	        	        	        	        	        	        	        	        	
+Int Delay, s/veh                  		10.6    	        	        	        	        	        	        	        	        	        	        	
+
+Movement                          		EBL     	EBT     	EBR     	WBL     	WBT     	WBR     	NBL     	NBT     	NBR     	SBL     	SBT     	SBR
+Lane Configurations               		0       	<1>     	0       	0       	<1>     	0       	0       	<1>     	0       	0       	<1>     	0
+Traffic Vol, veh/h                		15      	104     	164     	65      	146     	45      	243     	15      	45      	33      	15      	15
+Future Vol, veh/h                 		15      	104     	164     	65      	146     	45      	243     	15      	45      	33      	15      	15
+Conflicting Peds, #/hr            		0       	0       	0       	0       	0       	0       	0       	0       	0       	0       	0       	0
+Sign Control                      		Free    	Free    	Free    	Free    	Free    	Free    	Stop    	Stop    	Stop    	Stop    	Stop    	Stop
+RT Channelized                    		-       	-       	None    	-       	-       	None    	-       	-       	None    	-       	-       	None
+Storage Length                    		-       	-       	-       	-       	-       	-       	-       	-       	-       	-       	-       	-
+Veh in Median Storage, #          		-       	0       	-       	-       	0       	-       	-       	0       	-       	-       	0       	-
+Grade, %                          		-       	0       	-       	-       	0       	-       	-       	0       	-       	-       	0       	-
+Peak Hour Factor                  		100     	100     	100     	100     	100     	100     	100     	100     	100     	100     	100     	100
+Heavy Vehicles, %                 		2       	2       	2       	2       	2       	2       	2       	2       	2       	2       	2       	2
+Mvmt Flow                         		15      	104     	164     	65      	146     	45      	243     	15      	45      	33      	15      	15
+                                  		        	        	        	        	        	        	        	        	        	        	        	
+
+Major/Minor                       		Major1  	        	        	Major2  	        	        	Minor1  	        	        	Minor2  	        	
+Conflicting Flow All              		191     	0       	0       	268     	0       	0       	500     	537     	186     	440     	597     	169
+          Stage 1                 		-       	-       	-       	-       	-       	-       	216     	216     	-       	299     	299     	-
+          Stage 2                 		-       	-       	-       	-       	-       	-       	284     	321     	-       	142     	298     	-
+Critical Hdwy                     		4.12    	-       	-       	4.12    	-       	-       	7.12    	6.52    	6.22    	7.12    	6.52    	6.22
+Critical Hdwy Stg 1               		-       	-       	-       	-       	-       	-       	6.12    	5.52    	-       	6.12    	5.52    	-
+Critical Hdwy Stg 2               		-       	-       	-       	-       	-       	-       	6.12    	5.52    	-       	6.12    	5.52    	-
+Follow-up Hdwy                    		2.218   	-       	-       	2.218   	-       	-       	3.518   	4.018   	3.318   	3.518   	4.018   	3.318
+Pot Cap-1 Maneuver                		1383    	-       	-       	1296    	-       	-       	482     	450     	856     	527     	417     	876
+          Stage 1                 		-       	-       	-       	-       	-       	-       	786     	724     	-       	710     	667     	-
+          Stage 2                 		-       	-       	-       	-       	-       	-       	724     	652     	-       	861     	667     	-
+Platoon blocked, %                		        	-       	-       	        	-       	-       	        	        	        	        	        	
+Mov Cap-1 Maneuver                		1383    	-       	-       	1296    	-       	-       	425     	419     	856     	450     	388     	876
+Mov Cap-2 Maneuver                		-       	-       	-       	-       	-       	-       	425     	419     	-       	450     	388     	-
+          Stage 1                 		-       	-       	-       	-       	-       	-       	776     	715     	-       	670     	629     	-
+          Stage 2                 		-       	-       	-       	-       	-       	-       	655     	615     	-       	789     	658     	-
+                                  		        	        	        	        	        	        	        	        	        	        	        	
+
+Approach                          		EB      	        	        	WB      	        	        	NB      	        	        	SB      	        	
+HCM Ctrl Dly, s/v                 		0.4     	        	        	2.01    	        	        	26.81   	        	        	13.47   	        	
+HCM LOS                           		        	        	        	        	        	        	D       	        	        	B       	        	
+                                  		        	        	        	        	        	        	        	        	        	        	        	
+
+Minor Lane/Major Mvmt             		        	NBLn1   	EBL     	EBT     	EBR     	WBL     	WBT     	WBR     	SBLn1
+Capacity (veh/h)                  		        	459     	85      	-       	-       	436     	-       	-       	488
+HCM Lane V/C Ratio                		        	0.66    	0.011   	-       	-       	0.05    	-       	-       	0.129
+HCM Ctrl Dly (s/v)                		        	26.8    	7.6     	0       	-       	7.9     	0       	-       	13.5
+HCM Lane LOS                      		        	D       	A       	A       	-       	A       	A       	-       	B
+HCM 95th %tile Q(veh)             		        	4.7     	0       	-       	-       	0.2     	-       	-       	0.4
+
+
+Stonegate Subdivision - 2024 Plan	Synchro 12 Report
+2039 PM Peak Hour BUILD Conditions	2024101_Stonegate_2039.syn
+
+HCM 7th TWSC	Tierra West, LLC
+11: Edinburgh St & Driveway "B"	12/04/2024
+
+
+
+Intersection                      		        	        	        	        	        	
+Int Delay, s/veh                  		0       	        	        	        	        	
+
+Movement                          		EBL     	EBR     	NBL     	NBT     	SBT     	SBR
+Lane Configurations               		1>      	0       	0       	<1      	1>      	0
+Traffic Vol, veh/h                		0       	0       	0       	0       	0       	0
+Future Vol, veh/h                 		0       	0       	0       	0       	0       	0
+Conflicting Peds, #/hr            		0       	0       	0       	0       	0       	0
+Sign Control                      		Stop    	Stop    	Free    	Free    	Free    	Free
+RT Channelized                    		-       	None    	-       	None    	-       	None
+Storage Length                    		0       	-       	-       	-       	-       	-
+Veh in Median Storage, #          		0       	-       	-       	0       	0       	-
+Grade, %                          		0       	-       	-       	0       	0       	-
+Peak Hour Factor                  		100     	100     	100     	100     	100     	100
+Heavy Vehicles, %                 		2       	2       	2       	2       	2       	2
+Mvmt Flow                         		0       	0       	0       	0       	0       	0
+                                  		        	        	        	        	        	
+
+Major/Minor                       		Minor2  	        	Major1  	        	Major2  	
+Conflicting Flow All              		1       	1       	1       	0       	-       	0
+          Stage 1                 		1       	-       	-       	-       	-       	-
+          Stage 2                 		0       	-       	-       	-       	-       	-
+Critical Hdwy                     		6.42    	6.22    	4.12    	-       	-       	-
+Critical Hdwy Stg 1               		5.42    	-       	-       	-       	-       	-
+Critical Hdwy Stg 2               		5.42    	-       	-       	-       	-       	-
+Follow-up Hdwy                    		3.518   	3.318   	2.218   	-       	-       	-
+Pot Cap-1 Maneuver                		1022    	1084    	1622    	-       	-       	-
+          Stage 1                 		1022    	-       	-       	-       	-       	-
+          Stage 2                 		-       	-       	-       	-       	-       	-
+Platoon blocked, %                		        	        	        	-       	-       	-
+Mov Cap-1 Maneuver                		1022    	1084    	1622    	-       	-       	-
+Mov Cap-2 Maneuver                		1022    	-       	-       	-       	-       	-
+          Stage 1                 		1022    	-       	-       	-       	-       	-
+          Stage 2                 		-       	-       	-       	-       	-       	-
+                                  		        	        	        	        	        	
+
+Approach                          		EB      	        	NB      	        	SB      	
+HCM Ctrl Dly, s/v                 		0       	        	0       	        	0       	
+HCM LOS                           		A       	        	        	        	        	
+                                  		        	        	        	        	        	
+
+Minor Lane/Major Mvmt             		        	NBL     	NBT     	EBLn1   	SBT     	SBR
+Capacity (veh/h)                  		        	1622    	-       	-       	-       	-
+HCM Lane V/C Ratio                		        	-       	-       	-       	-       	-
+HCM Ctrl Dly (s/v)                		        	0       	-       	0       	-       	-
+HCM Lane LOS                      		        	A       	-       	A       	-       	-
+HCM 95th %tile Q(veh)             		        	0       	-       	-       	-       	-
+
+
+Stonegate Subdivision - 2024 Plan	Synchro 12 Report
+2039 PM Peak Hour BUILD Conditions	2024101_Stonegate_2039.syn
+

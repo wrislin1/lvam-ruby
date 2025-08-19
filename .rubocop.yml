@@ -1,0 +1,59 @@
+inherit_gem:
+  rubocop-rails-omakase: rubocop.yml
+
+plugins: rubocop-performance
+
+AllCops:
+  TargetRubyVersion: 3.3.6
+  TargetRailsVersion: 8.0.1
+  NewCops: enable
+  Exclude:
+    - db/schema.rb
+    - db/migrate/*.rb
+    - node_modules/**/*
+    - vendor/**/*.rb
+    - vendor/bundle/**/*
+    - bin/**
+    - tmp/**/*
+    - lib/templates/**/*
+    - config/routes.rb
+    - config/initializers/*.rb
+    - lib/tasks/*.rake
+Style/Documentation:
+  Enabled: false
+Layout/LineLength:
+  Enabled: false
+Style/TrailingCommaInHashLiteral:
+  Enabled: false
+Style/TrailingCommaInArrayLiteral:
+  Enabled: false
+Lint/UnderscorePrefixedVariableName:
+  Enabled: false
+Metrics/BlockLength:
+  Max: 60
+  Exclude:
+    - spec/**/*
+    - config/environments/development.rb
+Lint/EmptyBlock:
+  Exclude:
+    - spec/**/*
+Style/IfUnlessModifier:
+  Enabled: false
+Metrics/MethodLength:
+  Max: 120
+Naming/MethodParameterName:
+  Enabled: false
+Style/ExplicitBlockArgument:
+  Enabled: false
+Metrics/ParameterLists:
+  Max: 10
+Metrics/CyclomaticComplexity:
+  Max: 30
+Metrics/PerceivedComplexity:
+  Max: 30
+Metrics/ClassLength:
+  Max: 400
+Metrics/ModuleLength:
+  Max: 200
+Metrics/AbcSize:
+  Max: 90

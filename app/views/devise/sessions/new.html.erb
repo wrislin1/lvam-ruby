@@ -1,0 +1,26 @@
+<% page_title "Sign In" %>
+<section id="login" class="h-full py-10 bg-primary-100">
+    <div class="md:max-w-[30rem] mx-auto px-10 xl:px-0">
+
+        <header class="flex flex-col items-center gap-5 text-primary mb-5">
+            <h1 class="text-xl font-bold uppercase">Welcome back</h1>
+        </header>
+
+        <%= render AuthCardComponent.new do %>
+          <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: 'w-full flex flex-col gap-3' }) do |f| %>
+            <div class="flex flex-col gap-3">
+              <%= f.input :email, autofocus: true, label: false, placeholder: 'Email', wrapper_html: { class: 'flex-1' }, input_html: { autocomplete: 'email' } %>
+              <%= f.input :password, label: false, placeholder: 'Password', wrapper_html: { class: 'flex-1' }, input_html: { autocomplete: 'current-password' } %>
+            </div>
+            <% if devise_mapping.rememberable? %>
+              <%= f.input :remember_me, as: :boolean %>
+            <% end %>
+            <%= render PrimaryButtonComponent.new 'Log in', type: :submit, icon: 'fa-right-to-bracket fa-lg' %>
+          <% end %>
+          <div class="flex flex-wrap justify-center gap-2">
+            <%= render "devise/shared/links" %>
+          </div>
+        <% end %>
+
+    </div>
+</section>

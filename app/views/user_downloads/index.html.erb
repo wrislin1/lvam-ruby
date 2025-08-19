@@ -1,0 +1,16 @@
+<%= render IndexLayoutComponent.new do %>
+  <%= render TableFiltersComponent.new(turbo_frame: 'user_downloads', placeholder: 'Search downloads...', filters: @filters, reset: false) do |x| %>
+  <% end %>
+  <%= turbo_frame_tag :user_downloads do %>
+    <%= turbo_stream_from :"user_#{current_user.id}_downloads" %>
+    <%= render TableComponent.new @user_downloads,
+                                  column_defs,
+                                  active_columns: @active_columns,
+                                  sort: @sort,
+                                  partial: 'user_downloads/user_download',
+                                  as_symbol: :user_download %>
+    <% if @pagy && @pagy.pages > 1 %>
+      <%= render PaginationComponent.new pagy: @pagy, frame: :user_downloads %>
+    <% end %>
+  <% end %>
+<% end %>

@@ -1,0 +1,2 @@
+<% actions = user_actions(user) %>
+<%= render DropdownComponent.new actions, id: dom_id(user, :actions), disabled: actions.blank?, menu_class: 'w-48' %>

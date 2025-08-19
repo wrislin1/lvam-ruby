@@ -1,0 +1,58 @@
+<section id="sign-up" class="h-full py-20 bg-primary-100">
+    <div class="max-w-screen-xl mx-auto px-10 xl:px-0">
+
+        <header class="flex flex-col gap-5 text-primary mb-5">
+            <h1 class="text-xl font-bold uppercase">Create Your Account</h1>
+            <h2 class="font-semibold text-primary-400">Get started today for free <i class="far fa-arrow-circle-down ms-1"></i></h2>
+        </header>
+
+        <div class="flex flex-col lg:flex-row gap-20">
+
+            <div class="lg:w-1/2">
+                <p class="text-primary text-sm mb-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+
+                <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+                    <%= render "devise/shared/error_messages", resource: resource %>
+                    <div class="flex flex-col gap-4">
+                        <div class="field">
+                          <%= f.input :email, label: 'Email', autofocus: true, required: true, input_html: { autocomplete: "email" } %>
+                        </div>
+                        <div class="field">
+                          <%= f.input :first_name, label: 'First Name', required: true, input_html: { autocomplete: "given-name" } %>
+                        </div>
+                        <div class="field">
+                          <%= f.input :last_name, label: 'Last Name', required: true, input_html: { autocomplete: "family-name" } %>
+                        </div>
+                        <div class="field">
+                          <%= f.input :password, label: 'Password', required: true, input_html: { autocomplete: "new-password" } %>
+                          <% if @minimum_password_length %>
+                            <small class="text-xs italic text-primary">(<%= @minimum_password_length %> characters minimum)</small>
+                          <% end %>
+                        </div>
+                        <div class="field">
+                          <%= f.input :password_confirmation, label: 'Password Confirmation', required: true, input_html: { autocomplete: "new-password" } %>
+                        </div>
+                        <div class="actions">
+                          <%= render PrimaryButtonComponent.new 'Sign Up', type: :submit, classes: ['w-full'] %>
+                        </div>
+                    </div>
+                <% end %>
+
+                <%= render "devise/shared/links" %>
+            </div>
+
+            <div class="flex items-center justify-center lg:w-1/2">
+                <div class="relative mt-10 lg:mt-0">
+                    <img src="<%= asset_path 'sign-up.svg' %>" alt="Person filling out form graphic" class="relative z-1 w-[20rem] lg:w-[30rem]" />
+                    <img src="<%= asset_path 'bubbles-3.svg' %>" alt="bubbles" class="absolute z-0 -top-16 left-0 w-[40rem]" />
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+
+

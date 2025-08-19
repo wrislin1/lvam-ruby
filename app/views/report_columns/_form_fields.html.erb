@@ -1,0 +1,88 @@
+<% collapse_id = "report_col_#{f.index}" %>
+<% open = f.index.to_i.zero? || f.object.errors.present? %>
+<div
+  class="report-column"
+  data-controller="file-upload"
+  data-report-form-target="column"
+  data-index="<%= f.index %>"
+>
+  <div class="flex items-center justify-between column-banner text-white px-4 py-2 rounded-md">
+    <span class="font-semibold">
+      <% if f.object.persisted? %>
+        COLUMN <%= f.object.position %>
+      <% else %>
+        NEW COLUMN
+      <% end %>
+      <span class="column-title" data-index="<%= f.index %>">
+        <% if f.object.title.present? %>
+          (<%= f.object.title %>)
+        <% end %>
+      </span>
+    </span>
+    <%= render 'report_columns/actions', collapse_id:, f:, open: %>
+  </div>
+  <div id="<%= collapse_id %>" class="<%= 'hidden' unless open %>">
+    <%= f.hidden_field :id, class: "id" %>
+    <%= f.hidden_field :_destroy, class: "destroy", value: "0" %>
+    <%= f.hidden_field :position, class: "position" %>
+    <div class="grid grid-cols-3 gap-4 mt-4">
+      <%= f.input :title, required: true, input_html: { data: { action: "input->report-form#syncColTitle" } } %>
+      <%= f.input :subtitle, label: 'Subtitle 1' %>
+      <%= f.input :col_type, label: 'Col. Type', include_blank: true, collection: ReportColumn.col_types.values.map { |x| [x.titleize, x] } %>
+    </div>
+    <div class="grid grid-cols-2 gap-4 mt-4">
+      <% am_uploaded = f.object.persisted? && f.object.am_file.attached? && f.object.errors[:am_file].blank? %>
+      <% begin %>
+        <%= f.hidden_field :am_file, value: f.object.am_file.signed_id if f.object.persisted? && f.object.am_file.attached? %>
+      <% rescue %>
+      <% end %>
+      <div class="flex flex-col gap-4 p-3 border-primary-700 border bg-white rounded-xl">
+        <div class="uppercase  flex items-center gap-1.5">
+          <i class="fas fa-file text-primary/80"></i>
+          <p class="text-primary-700 font-semibold">AM FILE</p>
+        </div>
+        <% if am_uploaded %>
+          <% begin %>
+            <%= link_to f.object.am_file, title: 'Download AM File', class: 'text-primary-700 hover:text-primary hover:underline text-sm', target: '_blank' do %>
+              <i class="far fa-download"></i>
+              <span><%= f.object.am_file.filename.to_s %></span>
+            <% end %>
+          <% rescue %>
+          <% end %>
+        <% end %>
+        <% label = am_uploaded ? 'Change AM File' : 'Add an AM File' %>
+        <%= f.input :am_file,
+                    as: :file,
+                    label:,
+                    required: !am_uploaded,
+                    input_html: { accept: '.txt' } %>
+      </div>
+      <% pm_uploaded = f.object.persisted? && f.object.pm_file.attached? && f.object.errors[:pm_file].blank? %>
+      <% begin %>
+        <%= f.hidden_field :pm_file, value: f.object.pm_file.signed_id if f.object.persisted? && f.object.pm_file.attached? %>
+      <% rescue %>
+      <% end %>
+      <div class="flex flex-col gap-4 p-3 border-primary-700 border bg-white rounded-xl">
+        <div class="uppercase  flex items-center gap-1.5">
+          <i class="fas fa-file text-primary/80"></i>
+          <p class="text-primary-700 font-semibold">PM FILE</p>
+        </div>
+        <% if pm_uploaded %>
+          <% begin %>
+            <%= link_to f.object.pm_file, title: 'Download PM File', class: 'text-primary-700 hover:text-primary hover:underline text-sm', target: '_blank' do %>
+              <i class="far fa-download"></i>
+              <span><%= f.object.pm_file.filename.to_s %></span>
+            <% end %>
+          <% rescue %>
+          <% end %>
+        <% end %>
+        <% label = pm_uploaded ? 'Change PM File' : 'Add a PM File' %>
+        <%= f.input :pm_file,
+                    as: :file,
+                    label:,
+                    required: !pm_uploaded,
+                    input_html: { accept: '.txt' } %>
+      </div>
+    </div>
+  </div>
+</div>

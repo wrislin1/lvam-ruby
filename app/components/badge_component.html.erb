@@ -1,0 +1,14 @@
+<%= root_tag do %>
+  <% if @label.nil? %>
+    <%= content %>
+  <% else %>
+    <%= icon_left if icon_left? %>
+    <span><%= @label %></span>
+    <%= icon_right if icon_right? %>
+    <% if @dismissable && @id.present? %>
+      <button aria-label="Remove badge" type="button" data-dismiss-target="#<%= @id %>">
+        <i class="far fa-xmark fa-sm"></i>
+      </button>
+    <% end %>
+  <% end %>
+<% end %>

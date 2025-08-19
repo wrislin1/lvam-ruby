@@ -1,0 +1,13 @@
+<%= simple_form_for [:admin, @user], html: { class: 'flex flex-col gap-4', data: { modal_target: 'form' }, id: dom_id(@user, :form) } do |f| %>
+  <%= render FormErrorsComponent.new model: @user %>
+  <%= f.input :email, input_html: { data: { modal_target: 'focusInput' } } %>
+  <div class="flex flex-col gap-4 lg:flex-row lg:items-center">
+    <%= f.input :first_name, required: true, wrapper_html: { class: 'flex-1' } %>
+    <%= f.input :last_name, required: true, wrapper_html: { class: 'flex-1' } %>
+  </div>
+  <div class="flex flex-col gap-4 lg:flex-row lg:items-center">
+    <%= f.input :admin, as: :boolean, label: "Is Admin?" %>
+    <%= f.input :status, collection: User.statuses.values.map { |s| [s.titleize, s] }, wrapper_html: { class: 'flex-1' }, include_blank: false %>
+  </div>
+  <%= yield %>
+<% end %>

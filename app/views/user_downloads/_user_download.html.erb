@@ -1,0 +1,9 @@
+<% iteration = local_assigns[:user_download_iteration] || nil %>
+<%= render TableRowComponent.new user_download,
+                                 column_defs,
+                                 active_columns: nil,
+                                 collection_size: iteration&.size || 0,
+                                 idx: iteration&.index || 0,
+                                 template_path: 'user_downloads/column_templates',
+                                 stream_enter_class: 'animate-flash-green',
+                                 stream_exit_class: 'animate-flash-red' %>

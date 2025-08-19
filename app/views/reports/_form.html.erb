@@ -1,0 +1,12 @@
+<%= simple_form_for @report,
+                    html: { class: "max-w-6xl space-y-5 mx-auto report-text" } do |f| %>
+  <h2 class="text-lg font-semibold uppercase tracking-wide report-text">Step One</h2>
+  <h3 class="text-2xl font-bold report-text">Create Your Project</h3>
+  <p class="report-text">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at nunc nec sem blandit cursus at non augue. Nullam vulputate consequat hendrerit.
+  </p>
+  <%= render 'reports/form_fields', f: %>
+  <div class="flex justify-start">
+    <%= render PrimaryButtonComponent.new 'Next', type: :submit, icon: 'fa-arrow-right', icon_position: 'right' %>
+  </div>
+<% end %>

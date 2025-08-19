@@ -1,0 +1,5 @@
+<div id="alerts">
+  <% flash.each do |type, data| %>
+    <%= render 'partials/alert', type:, data: { message: data } %>
+  <% end %>
+</div>

@@ -1,0 +1,23 @@
+<%= root_tag do %>
+  <% if @loading_icon %>
+    <span class="icon spinner <%= 'hidden' unless @loading %>">
+      <i class="fas fa-spinner fa-spin fa-fw mr-0.5"></i>
+    </span>
+  <% end %>
+  <% if @icon && @icon_position == 'left' %>
+    <span class="icon <%= 'hidden' if @loading %>">
+      <i class="far fa-fw <%= 'mr-0.5' unless icon_only? %> <%= @icon %>"></i>
+    </span>
+  <% elsif icon? %>
+    = icon
+  <% end %>
+  <%= @text if @text.present? %>
+  <% if @icon && @icon_position == 'right' %>
+    <span class="icon <%= 'hidden' if @loading %>">
+      <i class="far fa-fw <%= 'ml-0.5' unless icon_only? %> <%= @icon %>"></i>
+    </span>
+  <% end %>
+  <% if icon_right? %>
+    <%= icon_right %>
+  <% end %>
+<% end %>

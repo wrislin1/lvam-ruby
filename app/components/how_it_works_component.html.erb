@@ -1,0 +1,35 @@
+<section id="how-it-works" class="py-10 bg-primary-100">
+    <div class="max-w-screen-xl mx-auto px-10 xl:px-0">
+
+        <header class="flex flex-col items-center gap-5 text-primary-100 mb-20">
+            <h2 class="text-xl font-bold uppercase">How It Works</h2>
+        </header>
+
+        <div class="flex flex-col lg:flex-row items-center justify-between gap-20">
+
+            <div class="flex flex-col items-center gap-5">
+                <img src="<%= asset_path 'user-add.svg' %>" alt="User Add icon" class="w-[10rem]" />
+                <h3 class="font-semibold text-xl text-primary-700">Create Your Account</h3>
+                <span class="text-sm text-primary">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
+            </div>
+
+            <div class="flex flex-col items-center gap-5">
+                <img src="<%= asset_path 'crossroad.svg' %>" alt="User Add icon" class="w-[10rem]" />
+                <h3 class="font-semibold text-xl text-primary-700">Define Your Scenario</h3>
+                <span class="text-sm text-primary">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
+            </div>
+
+            <div class="flex flex-col items-center gap-5">
+                <img src="<%= asset_path 'cloud-download.svg' %>" alt="User Add icon" class="w-[10rem]" />
+                <h3 class="font-semibold text-xl text-primary-700">Generate Your Reports</h3>
+                <span class="text-sm text-primary">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
+            </div>
+
+        </div>
+
+        <div class="flex justify-center mt-20">
+            <%= render PrimaryButtonComponent.new 'Get Started', tag: :a, attrs: { href: new_user_registration_path } %>
+        </div>
+
+    </div>
+</section>

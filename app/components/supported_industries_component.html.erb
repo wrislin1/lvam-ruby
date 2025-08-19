@@ -1,0 +1,31 @@
+<section id="supported-industries" class="py-10 bg-primary-100">
+    <div class="max-w-screen-xl mx-auto px-10 xl:px-0">
+
+        <header class="flex flex-col items-center gap-5 text-primary mb-20">
+            <h2 class="text-xl font-bold uppercase">Industries We Support</h2>
+        </header>
+
+        <div class="flex flex-col lg:flex-row items-center justify-between gap-20">
+            <div class="flex flex-col items-center gap-5">
+                <img src="<%= asset_path 'mobile-banking.svg' %>" alt="Mobile Banking icon" class="w-[10rem]" />
+                <h3 class="font-semibold text-xl text-primary-700">Retail &amp; Restaurants</h3>
+                <span class="text-sm text-primary">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
+            </div>
+            <div class="flex flex-col items-center gap-5">
+                <img src="<%= asset_path 'construction-worker.svg' %>" alt="Construction Worker icon" class="w-[10rem]" />
+                <h3 class="font-semibold text-xl text-primary-700">Developers</h3>
+                <span class="text-sm text-primary">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
+            </div>
+            <div class="flex flex-col items-center gap-5">
+                <img src="<%= asset_path 'heartbeat.svg' %>" alt="Heartbeat icon" class="w-[10rem]" />
+                <h3 class="font-semibold text-xl text-primary-700">Health Care</h3>
+                <span class="text-sm text-primary">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
+            </div>
+        </div>
+
+        <div class="flex justify-center mt-20">
+            <%= render PrimaryButtonComponent.new 'Get Started', tag: :a, attrs: { href: new_user_registration_path } %>
+        </div>
+
+    </div>
+</section>

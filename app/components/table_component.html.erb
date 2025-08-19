@@ -1,0 +1,23 @@
+<div class="overflow-hidden w-full">
+  <div class="w-full overflow-x-auto">
+    <table class="w-full border-separate border-spacing-0">
+      <thead>
+      <tr>
+        <% visible_columns.each_with_index do |col, col_idx| %>
+          <%= render TableHeaderComponent.new col, sort: @sort, idx: col_idx, column_defs: @column_defs %>
+        <% end %>
+      </tr>
+      </thead>
+      <tbody id="<%= @as_symbol&.to_s&.pluralize %>">
+        <% if @collection.blank? %>
+          <tr>
+            <td colspan="<%= visible_columns.size %>" class="text-center italic py-3 text-xs text-gray-500">
+              No records found.
+            </td>
+          </tr>
+        <% end %>
+        <%= render partial: @partial, collection: @collection, as: @as_symbol, locals: { column_defs: @column_defs, active_columns: @active_columns } %>
+      </tbody>
+    </table>
+  </div>
+</div>

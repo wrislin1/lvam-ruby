@@ -1,0 +1,6 @@
+<%= render 'admin/users/form' do %>
+  <div class="flex items-center gap-4 mt-3">
+    <%= render SecondaryButtonComponent.new 'Cancel', tag: :a, attrs: { href: admin_users_path } %>
+    <%= render PrimaryButtonComponent.new 'Submit', type: :submit, icon: 'fa-floppy-disk fa-lg' %>
+  </div>
+<% end %>

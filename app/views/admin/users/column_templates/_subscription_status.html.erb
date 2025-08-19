@@ -1,0 +1,20 @@
+<div class="flex justify-start">
+  <% sub_status = user.try(:subscription_status) %>
+  <% if sub_status.nil? %>
+    <%= render BadgeComponent.new label: "None", variant: "danger" %>
+  <% elsif sub_status == 'active' %>
+    <%= render BadgeComponent.new label: "Active", variant: "success" do |b| %>
+      <% b.with_icon_left do %>
+        <i class="far fa-circle-check"></i>
+      <% end %>
+    <% end %>
+  <% elsif sub_status == 'trialing' %>
+    <%= render BadgeComponent.new label: "Trial", variant: "warning" do |b| %>
+      <% b.with_icon_left do %>
+        <i class="far fa-hourglass-half"></i>
+      <% end %>
+    <% end %>
+  <% else %>
+    <%= render BadgeComponent.new label: "None", variant: "danger" %>
+  <% end %>
+</div>

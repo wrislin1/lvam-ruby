@@ -1,0 +1,107 @@
+<nav
+  class="bg-primary-200 h-16 fixed w-full z-20 top-0 start-0"
+>
+  <div class="max-w-screen-xl flex h-full flex-wrap items-center justify-between mx-auto px-10 xl:px-0">
+    <a href="<%= root_path %>" class="flex items-center space-x-3 rtl:space-x-reverse">
+      <span class="self-center text-4xl text-primary-700 tracking-tight uppercase font-base whitespace-nowrap">LVAM</span>
+    </a>
+    <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+      <% if helpers.user_signed_in? %>
+        <% if helpers.current_user.admin? %>
+          <% admin_links = helpers.admin_links %>
+          <% if admin_links.present? %>
+            <div class="hidden md:block me-4">
+              <%= render DropdownComponent.new admin_links, id: 'admin-links' do |d| %>
+                <% d.with_trigger do %>
+                  <%= render PrimaryButtonComponent.new 'Admin', type: :button, icon: 'fa-lg fa-shield-halved', attrs: { data: { dropdown_toggle: 'admin-links', dropdown_target: 'trigger' } } do |b| %>
+                    <% b.with_icon_right do %>
+                      <i class="fas ms-1 fa-chevron-down"></i>
+                    <% end %>
+                  <% end %>
+                <% end %>
+              <% end %>
+            </div>
+          <% end %>
+        <% end %>
+        <button
+          type="button"
+          class="size-10 rounded-full md:me-0 focus:ring-4 focus:ring-primary-300"
+          id="user-menu-button"
+          aria-expanded="false"
+          data-dropdown-toggle="user-dropdown"
+          data-dropdown-placement="bottom"
+        >
+          <span class="inline-block border border-primary-700 size-10 overflow-hidden rounded-full bg-primary-100">
+            <svg class="size-full text-primary-700" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z" />
+            </svg>
+          </span>
+        </button>
+        <div
+          class="z-50 hidden w-48 my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow-sm"
+          id="user-dropdown"
+        >
+          <div class="px-4 py-3">
+            <span class="block text-sm truncate text-gray-900">
+              <%= helpers.current_user.name %>
+            </span>
+            <span class="block text-sm  text-gray-500 truncate">
+              <%= helpers.current_user.email %>
+            </span>
+          </div>
+          <ul
+            class="py-2"
+            aria-labelledby="user-menu-button"
+          >
+            <li>
+              <a
+                href="<%= edit_user_registration_path %>"
+                class="flex items-center gap-1.5 px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+              >
+                <i class="far fa-gear fa-fw"></i>
+                Account
+              </a>
+            </li>
+            <li>
+              <%= link_to destroy_user_session_path, class: 'flex items-center gap-1.5 px-4 py-2 text-sm text-gray-700 hover:bg-gray-100', data: { turbo_method: :delete } do %>
+                <i class="far fa-right-from-bracket fa-fw"></i>
+                Sign out
+              <% end %>
+            </li>
+          </ul>
+        </div>
+      <% else %>
+        <%= render PrimaryButtonComponent.new 'Sign In', tag: :a, attrs: { href: new_user_session_path } %>
+      <% end %>
+      <% if helpers.user_signed_in? %>
+        <button
+          data-collapse-toggle="navbar-sticky"
+          type="button"
+          class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
+          aria-controls="navbar-sticky"
+          aria-expanded="false"
+        >
+          <span class="sr-only">Open main menu</span>
+          <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+          </svg>
+        </button>
+      <% end %>
+    </div>
+    <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
+      <ul class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-primary-200 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-primary-200">
+        <% helpers.navbar_links.each do |link| %>
+          <li>
+            <a
+              href="<%= link[:path] %>"
+              class="nav-link from-left block uppercase py-2 px-3 text-primary-700 bg-white rounded-sm md:bg-transparent md:p-0"
+              aria-current="page"
+            >
+              <%= link[:name] %>
+            </a>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>

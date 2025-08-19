@@ -1,0 +1,82 @@
+/*
+ * This is a manifest file that'll be compiled into application.css.
+ *
+ * With Propshaft, assets are served efficiently without preprocessing steps. You can still include
+ * application-wide styles in this file, but keep in mind that CSS precedence will follow the standard
+ * cascading order, meaning styles declared later in the document or manifest will override earlier ones,
+ * depending on specificity.
+ *
+ * Consider organizing styles into separate files for maintainability.
+ */
+
+@layer base {
+    input::placeholder,
+    textarea::placeholder {
+        color: var(--color-primary-400);
+    }
+
+    button:not(:disabled),
+    [role="button"]:not(:disabled) {
+        cursor: pointer;
+    }
+}
+
+a.nav-link:after {
+    display:block;
+    content: '';
+    width: inherit;
+    border-bottom: solid 3px var(--color-primary-700);
+    transform: scaleX(0);
+    transition: transform 250ms ease-in-out;
+}
+
+a.nav-link:hover:after { transform: scaleX(1); }
+
+a.nav-link.from-left:after {
+    transform-origin: left;
+}
+
+a.nav-link.from-right:after {
+    transform-origin: right;
+}
+
+input.bordered {
+    border: 1px solid var(--color-primary-700);
+    border-radius: var(--radius-lg);
+    outline: none;
+}
+
+.toastify.custom-toast {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    background: transparent none;
+    box-shadow: none;
+}
+
+.toastify.custom-toast .toast-close {
+    font-size: 1.3em;
+    opacity: 0.7;
+}
+
+/* Reports */
+.report-text {
+    color: #579bb3;
+}
+
+.column-banner {
+    background-color: #2980a0;
+}
+
+.report-button {
+    color: #579bb3;
+    border: #579bb3 solid 1px;
+}
+.report-button:hover {
+    background-color: #195e78; /* a darker shade */
+    color: #ffffff;
+}
+
+.download-icon{
+    color: #579bb3;
+}

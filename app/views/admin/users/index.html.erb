@@ -1,0 +1,43 @@
+<% page_title "Users" %>
+<% admin, subscription_status, status, q = @filters&.values_at('admin', 'subscription_status', 'status', 'q') %>
+<% reset = [admin, subscription_status, status, q].any?(&:present?) %>
+<%= render IndexLayoutComponent.new do %>
+  <%= render TableFiltersComponent.new(turbo_frame: 'users', placeholder: 'Search users...', filters: @filters, reset:) do |x| %>
+    <% x.with_actions do %>
+      <%= render PrimaryButtonComponent.new(
+        'Add User',
+        tag: :a,
+        attrs: { href: new_admin_user_path, data: { turbo_stream: true } },
+        icon: 'fa-plus',
+        classes: %w[ml-auto]
+      ) %>
+    <% end %>
+    <%= render FacetedSearchComponent.new 'users_admin_filter',
+                                          'admin',
+                                          User.faceted_search_user_type_options([admin].reject(&:nil?), count_scope: @scope),
+                                          'User Type',
+                                          menu_class: 'w-48',
+                                          single: true,
+                                          search: false %>
+    <%= render FacetedSearchComponent.new 'users_subscription_status_filter',
+                                          'subscription_status',
+                                          User.faceted_search_subscription_status_options([subscription_status].reject(&:nil?)),
+                                          'Subscription',
+                                          menu_class: 'w-48',
+                                          single: true,
+                                          search: false %>
+    <%= render FacetedSearchComponent.new 'users_status_filter',
+                                          'status',
+                                          User.faceted_search_status_options([status].reject(&:nil?), count_scope: @scope),
+                                          'Status',
+                                          menu_class: 'w-48',
+                                          single: true,
+                                          search: false %>
+  <% end %>
+  <%= turbo_frame_tag :users_table do %>
+    <%= render TableComponent.new @users, column_defs, active_columns:, sort: @sort, partial: 'admin/users/user', as_symbol: :user %>
+    <% if @pagy && @pagy.pages > 1 %>
+      <%= render PaginationComponent.new pagy: @pagy, frame: :users_table %>
+    <% end %>
+  <% end %>
+<% end %>

@@ -1,0 +1,11 @@
+<% page_title "Subscription" %>
+<%= render 'partials/account_tab_layout' do %>
+  <% subscribed = @subscriptions.any? { |s| s.status == 'active' } %>
+  <% unless subscribed %>
+    <%= form_with url: subscriptions_path, data: { turbo: false, action: 'submit->app#showLoadingOverlay' } do |f| %>
+      <%= f.hidden_field :price_id, value: Rails.application.credentials.subscriptions[:default_price_id] %>
+      <%= render PrimaryButtonComponent.new 'Subscribe', type: :submit, icon: 'fa-lg fa-credit-card' %>
+    <% end %>
+  <% end %>
+  <%= render 'users/subscriptions', subscriptions: @subscriptions, products: @products %>
+<% end %>

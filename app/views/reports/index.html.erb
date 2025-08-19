@@ -1,0 +1,32 @@
+<% page_title "Reports" %>
+<%= render IndexLayoutComponent.new do %>
+  <%= render TableFiltersComponent.new(turbo_frame: 'reports', placeholder: 'Search reports...', filters: @filters, reset: false) do |x| %>
+    <% x.with_actions do %>
+      <%= render PrimaryButtonComponent.new(
+        'New Report',
+        tag: :a,
+        attrs: { href: new_report_path, data: { turbo_frame: '_top' } },
+        icon: 'fa-circle-plus fa-lg',
+        classes: %w[ml-auto]
+      ) %>
+      <%= render SecondaryButtonComponent.new(
+        'Downloads',
+        tag: :a,
+        attrs: { href: user_downloads_path, data: { turbo_frame: '_top' } },
+        icon: 'fa-download fa-lg',
+        classes: %w[]
+      ) %>
+    <% end %>
+  <% end %>
+  <%= turbo_frame_tag :reports_table do %>
+    <%= render TableComponent.new @reports,
+                                  column_defs,
+                                  active_columns: @active_columns,
+                                  sort: @sort,
+                                  partial: 'reports/report',
+                                  as_symbol: :report %>
+    <% if @pagy && @pagy.pages > 1 %>
+      <%= render PaginationComponent.new pagy: @pagy, frame: :reports_table %>
+    <% end %>
+  <% end %>
+<% end %>

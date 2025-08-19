@@ -1,0 +1,12 @@
+<%= render AuthCardComponent.new header: 'Change your password' do %>
+  <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put, class: 'w-full flex flex-col gap-4' }) do |f| %>
+    <%= f.hidden_field :reset_password_token %>
+    <% hint = @minimum_password_length ? "#{@minimum_password_length} character minimum" : nil %>
+    <%= f.input :password, label: 'New password', autofocus: true, hint:, required: true, input_html: { autocomplete: 'new-password' } %>
+    <%= f.input :password_confirmation, label: 'Confirm password', required: true, input_html: { autocomplete: 'new-password' } %>
+    <%= render PrimaryButtonComponent.new 'Change my password', type: :submit, icon: 'fa-lock fa-lg' %>
+  <% end %>
+  <div class="flex flex-wrap gap-2 mt-10">
+    <%= render "devise/shared/links" %>
+  </div>
+<% end %>

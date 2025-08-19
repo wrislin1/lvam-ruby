@@ -1,0 +1,48 @@
+<nav class="flex items-center flex-column flex-wrap md:flex-row justify-between pt-4" aria-label="Table navigation">
+  <span class="text-sm font-normal text-gray-500 dark:text-gray-400 mb-4 md:mb-0 block w-full md:inline md:w-auto">
+    Showing
+    <span class="font-semibold text-gray-900 dark:text-white">
+      <%= @pagy.from %>-<%= @pagy.to %>
+    </span>
+    of
+    <span class="font-semibold text-gray-900 dark:text-white"><%= @pagy.count %></span>
+  </span>
+  <div class="flex flex-1 justify-between sm:hidden">
+    <%= link_to url_for(only_path: true, page: @pagy.prev), class: 'flex items-center gap-1' do %>
+      <i class="far fa-chevron-left fa-sm"></i>
+      <span>Prev</span>
+    <% end %>
+    <%= link_to url_for(only_path: true, page: @pagy.next), class: 'flex items-center gap-1' do %>
+      <span>Next</span>
+      <i class="far fa-chevron-right fa-sm"></i>
+  <% end %>
+  </div>
+  <ul class="pagination hidden md:inline-flex -space-x-px rtl:space-x-reverse text-sm h-8">
+    <%= link_to url_for(only_path: true, page: 1), class: 'page-link' do %>
+      <i class="far fa-chevrons-left fa-sm"></i>
+    <% end %>
+    <%= link_to url_for(only_path: true, page: @pagy.prev), class: 'page-link' do %>
+      <i class="far fa-chevron-left fa-sm"></i>
+    <% end %>
+    <% @pagy.series.each_with_index do |x, i| %>
+      <% if x.is_a?(Integer) || x.is_a?(String) %>
+        <% is_active = x.is_a?(String) %>
+        <%= link_to x, url_for(only_path: true, page: x), class: "page-link #{'active' if is_active}" %>
+      <% else %>
+        <% ahead = @pagy.page < @pagy.series[i - 1].to_i %>
+        <%= link_to url_for(only_path: true, page: ahead ? @pagy.series[i - 1] : @pagy.series[i + 1]), class: "group" do %>
+          <i class="fas fa-ellipsis fa-sm group-hover:hidden"></i>
+          <span class="hidden group-hover:block group-hover:text-blue-500">
+            <i class="far fa-sm <%= ahead ? 'fa-chevrons-right' : 'fa-chevrons-left' %>"></i>
+          </span>
+        <% end %>
+      <% end %>
+    <% end %>
+    <%= link_to url_for(only_path: true, page: @pagy.next), class: 'page-link' do %>
+      <i class="far fa-chevron-right fa-sm"></i>
+    <% end %>
+    <%= link_to url_for(only_path: true, page: @pagy.pages), class: 'page-link' do %>
+      <i class="far fa-chevrons-right fa-sm"></i>
+    <% end %>
+  </ul>
+</nav>

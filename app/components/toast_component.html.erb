@@ -1,0 +1,12 @@
+<div class="hidden" data-controller="toast remove-on-disconnect" data-toast-data-value="<%= @data.to_json %>">
+  <div
+    class="flex items-center w-full max-w-xs p-4 text-gray-500 bg-white/90 backdrop-blur-md rounded-lg shadow-sm"
+    role="alert"
+    data-controller="remove-on-disconnect"
+  >
+    <div class="inline-flex items-center justify-center shrink-0 w-8 h-8 <%= icon_container_class %> rounded-lg dark:bg-blue-800 dark:text-blue-200">
+      <i class="fas fa-lg <%= icon_class %>"></i>
+    </div>
+    <div class="ms-3 text-sm font-normal"><%= message %></div>
+  </div>
+</div>

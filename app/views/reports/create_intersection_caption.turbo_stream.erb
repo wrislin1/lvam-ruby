@@ -1,0 +1,30 @@
+<%= turbo_stream.replace "modal" do %>
+  <turbo-frame id="modal"></turbo-frame>
+<% end %>
+
+<%= turbo_stream.replace "caption-#{@intersection_id}" do %>
+  <div
+    class="intersection-caption"
+    id="caption-<%= @intersection_id %>"
+    data-intersection-target="caption"
+    data-intersection-id="<%= @intersection_id %>"
+    style="<%= @caption.caption.present? ? 'display: block;' : 'display: none;' %>">
+    <%= @caption.caption if @caption.caption.present? %>
+  </div>
+<% end %>
+
+<%= turbo_stream.replace "edit-btn-#{@intersection_id}" do %>
+  <%= link_to edit_intersection_caption_report_path(@report, @intersection_id, current_caption: @caption.caption || ''),
+              class: "intersection-edit-btn",
+              id: "edit-btn-#{@intersection_id}",
+              data: {
+                turbo_frame: "modal",
+                turbo_stream: true
+              },
+              title: "Add caption to intersection",
+              "aria-label": "Edit caption for intersection" do %>
+    <i class="fa-solid fa-edit"></i>
+    <span class="sr-only">Edit caption for intersection</span>
+  <% end %>
+<% end %>
+

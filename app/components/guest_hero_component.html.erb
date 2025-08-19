@@ -1,0 +1,18 @@
+<section id="guest-hero" class="relative flex lg:items-center h-[100vh] lg:h-auto min-h-[40rem] bg-primary-200">
+    <div class="relative z-2 flex flex-col lg:flex-row items-center gap-20 max-w-screen-xl mx-auto pt-20 lg:pt-0 px-10 xl:px-0">
+        <header class="flex flex-col gap-5 lg:w-3/4 text-white order-2 lg:order-1 text-center lg:!text-left">
+            <h2 class="text-4xl lg:!text-5xl font-bold">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h2>
+            <span class="text-sm lg:!text-base">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span>
+        </header>
+    </div>
+    <div class="absolute z-1 bottom-0 right-0">
+        <img src="<%= asset_path 'traffic-light.png' %>" alt="Traffic Light" class="w-[30rem]" />
+        <img src="<%= asset_path 'bubbles-1.svg' %>" alt="bubbles" class="absolute -z-1 bottom-0 right-0 w-[25rem]" />
+    </div>
+    <div class="absolute z-0 top-0 left-0 h-full w-full after:content-[''] after:block after:absolute after:top-0 after:left-0 after:h-full after:w-full after:bg-primary-900/80">
+        <video loop autoplay muted playsinline poster="<%= asset_path 'poster.png' %>" class="h-full w-full object-cover">
+            <source src="<%= asset_path '179_026_HD.mp4' %>" type="video/mp4" />
+            <span>This video is currently unavailable</span>
+        </video>
+    </div>
+</section>

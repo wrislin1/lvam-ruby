@@ -1,0 +1,19 @@
+<%= render ModalComponent.new header: 'Are you sure?', id: 'cancel-subscription', static: true do |m| %>
+  <% m.with_actions do %>
+    <%= render FormModalActionsComponent.new submit_text: 'Cancel Subscription', submit_icon: 'fa-ban' %>
+  <% end %>
+  <%= form_with url: cancel_subscription_path(@subscription.id), method: :post, data: { modal_target: 'form' }, class: 'flex flex-col gap-4' do |f| %>
+    <fieldset>
+      <legend class="text-sm text-gray-600 mb-1">Reason for cancellation</legend>
+      <div class="flex flex-col gap-1">
+        <%= f.collection_radio_buttons :feedback, cancellation_feedback_options, :second, :first do |x| %>
+          <div class="flex items-center gap-2">
+            <%= x.radio_button %>
+            <%= x.label %>
+          </div>
+        <% end %>
+      </div>
+    </fieldset>
+    <%= f.textarea :comment, placeholder: 'Optionally add a comment our service or why you are cancelling' %>
+  <% end %>
+<% end %>

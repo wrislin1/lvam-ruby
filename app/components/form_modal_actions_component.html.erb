@@ -1,0 +1,4 @@
+<div class="flex gap-4">
+  <%= render SecondaryButtonComponent.new 'Cancel', attrs: { data: { modal_target: 'cancel', action: @cancel_action.presence || 'modal#close' } } %>
+  <%= render PrimaryButtonComponent.new @submit_text, tag: :button, type: :submit, attrs: { disabled: @submit_disabled, data: { action: @submit_action, target: @submit_target } }, icon: @submit_icon, loading_icon: true %>
+</div>

@@ -1,0 +1,9 @@
+<% iteration = local_assigns[:user_iteration] || nil %>
+<%= render TableRowComponent.new user,
+                                 column_defs,
+                                 active_columns:,
+                                 collection_size: iteration&.size || 0,
+                                 idx: iteration&.index || 0,
+                                 template_path: 'admin/users/column_templates',
+                                 stream_enter_class: 'animate-flash-green',
+                                 stream_exit_class: 'animate-flash-red' %>

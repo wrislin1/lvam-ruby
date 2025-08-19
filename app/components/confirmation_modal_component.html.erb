@@ -1,0 +1,6 @@
+<%= render ModalComponent.new header: @header, id:, controller: "confirmation-modal" do |m| %>
+  <% m.with_actions do %>
+    <%= render FormModalActionsComponent.new submit_text: 'Confirm', submit_icon: 'fa-circle-check', submit_action: 'confirmation-modal#submit', submit_target: 'confirmation-modal.confirm', submit_disabled: true %>
+  <% end %>
+  <%= render 'partials/confirmation_form', message: @message, method: @method, turbo: @turbo, params: @params %>
+<% end %>

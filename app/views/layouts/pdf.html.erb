@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title><%= @report.title %></title>
+
+  <style>
+      body {
+          font-family: Arial, sans-serif;
+          margin: 0;
+          padding: 0;
+          -webkit-print-color-adjust: exact !important;
+          print-color-adjust: exact !important;
+          color-adjust: exact !important;
+      }
+
+      @page {
+          size: A4;
+          margin: 0.5cm;
+      }
+
+
+      .report-container {
+          max-width: 100%;
+      }
+
+      .intersection-diagram-container {
+          width: 100%;
+          height: 300px;
+          margin: 10px auto;
+          position: relative;
+          page-break-inside: avoid;
+          box-sizing: border-box;
+      }
+
+      .intersection-container {
+          width: 100%;
+          height: 100%;
+          position: relative;
+          border: 2px solid #000;
+          background-color: white;
+          border-radius: 4px;
+          overflow: hidden;
+          box-sizing: border-box;
+      }
+
+      .metrics-box {
+          position: absolute;
+          top: 5px;
+          right: 5px;
+          width: 60px;
+          height: 45px;
+          border: 1px solid #000;
+          text-align: center;
+          padding: 3px;
+          background-color: #fff;
+          z-index: 5;
+          box-sizing: border-box;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+      }
+
+      .los-value {
+          font-size: 16px;
+          font-weight: bold;
+          margin-bottom: 2px;
+      }
+
+      .delay-value {
+          font-size: 10px;
+      }
+
+      .intersection-diagram {
+          width: 75%;
+          height: 75%;
+          position: absolute;
+          top: 12.5%;
+          left: 12.5%;
+          box-sizing: border-box;
+      }
+
+      .intersection-circle {
+          position: absolute;
+          top: 40%;
+          left: 40%;
+          width: 20%;
+          height: 20%;
+          border-radius: 50%;
+          border: 2px solid #000;
+          background-color: #fff;
+          z-index: 3;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          box-sizing: border-box;
+          box-shadow: 0 0 0 2px white;
+      }
+
+      .intersection-number {
+          font-size: 16px;
+          font-weight: bold;
+          text-align: center;
+      }
+
+      .approach-container {
+          position: absolute;
+          width: 40%;
+          height: 40%;
+          box-sizing: border-box;
+      }
+
+      .approach-container.top {
+          top: 0;
+          left: 30%;
+          display: flex;
+          justify-content: center;
+      }
+
+      .approach-container.bottom {
+          bottom: 0;
+          left: 30%;
+          display: flex;
+          justify-content: center;
+      }
+
+      .approach-container.left {
+          left: 0;
+          top: 30%;
+      }
+
+      .approach-container.right {
+          right: 0;
+          top: 30%;
+      }
+
+      .approach-vertical {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: space-around;
+          width: 100%;
+          height: 100%;
+          padding: 5px 0;
+          box-sizing: border-box;
+      }
+
+      .approach-horizontal {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-evenly;
+          width: 100%;
+          height: 100%;
+          padding: 5px;
+          box-sizing: border-box;
+      }
+
+      .lane-group-row {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          height: 25px;
+          width: 100%;
+          box-sizing: border-box;
+      }
+
+      .approach-container.top .lane-group-row,
+      .approach-container.bottom .lane-group-row {
+          flex-direction: column;
+          height: auto;
+          width: 30px;
+      }
+
+      .volume,
+      .los {
+          font-size: 9px;
+          font-weight: bold;
+          text-align: center;
+          padding: 1px;
+          min-width: 30px;
+          box-sizing: border-box;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+      }
+
+      .approach-container.left .volume,
+      .approach-container.left .los,
+      .approach-container.right .volume,
+      .approach-container.right .los {
+          width: 50px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+      }
+
+      .lane-group {
+          position: relative;
+          width: 30px;
+          height: 25px;
+          box-sizing: border-box;
+      }
+
+      .intersection-name {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          text-align: center;
+          font-size: 11px;
+          font-weight: bold;
+          padding: 5px 0;
+          border-top: 1px solid #000;
+          background-color: white;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          box-sizing: border-box;
+      }
+
+      .lane-arrow-container {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          top: 0;
+          left: 0;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          box-sizing: border-box;
+      }
+
+      .lane-line {
+          position: relative;
+          width: 100%;
+          height: 100%;
+          box-sizing: border-box;
+      }
+
+      .los-a {
+          color: #4CAF50 !important;
+      }
+
+      .los-b {
+          color: #8BC34A !important;
+      }
+
+      .los-c {
+          color: #CDDC39 !important;
+      }
+
+      .los-d {
+          color: #FFC107 !important;
+      }
+
+      .los-e {
+          color: #FF9800 !important;
+      }
+
+      .los-f {
+          color: #F44336 !important;
+      }
+
+      .los-n\/a {
+          color: #9E9E9E !important;
+      }
+
+      .lane-group .lane-1-of-2 {
+          position: absolute;
+          left: 0%;
+          width: 50%;
+      }
+
+      .lane-group .lane-2-of-2 {
+          position: absolute;
+          left: 50%;
+          width: 50%;
+      }
+
+      .lane-group .lane-1-of-3 {
+          position: absolute;
+          left: 0;
+          width: 33.33%;
+      }
+
+      .lane-group .lane-2-of-3 {
+          position: absolute;
+          left: 33.33%;
+          width: 33.33%;
+      }
+
+      .lane-group .lane-3-of-3 {
+          position: absolute;
+          left: 66.66%;
+          width: 33.33%;
+      }
+
+      .approach-container.left .lane-group .lane-1-of-2,
+      .approach-container.right .lane-group .lane-1-of-2 {
+          position: absolute;
+          top: 0%;
+          height: 50%;
+          left: auto;
+          width: 100%;
+      }
+
+      .approach-container.left .lane-group .lane-2-of-2,
+      .approach-container.right .lane-group .lane-2-of-2 {
+          position: absolute;
+          top: 50%;
+          height: 50%;
+          left: auto;
+          width: 100%;
+      }
+
+      .approach-container.left .lane-group .lane-1-of-3,
+      .approach-container.right .lane-group .lane-1-of-3 {
+          position: absolute;
+          top: 0;
+          height: 33.33%;
+          left: auto;
+          width: 100%;
+      }
+
+      .approach-container.left .lane-group .lane-2-of-3,
+      .approach-container.right .lane-group .lane-2-of-3 {
+          position: absolute;
+          top: 33.33%;
+          height: 33.33%;
+          left: auto;
+          width: 100%;
+      }
+
+      .approach-container.left .lane-group .lane-3-of-3,
+      .approach-container.right .lane-group .lane-3-of-3 {
+          position: absolute;
+          top: 66.66%;
+          height: 33.33%;
+          left: auto;
+          width: 100%;
+      }
+
+      .report-columns {
+          display: block !important;
+          margin-top: 20px;
+          width: 100%;
+      }
+
+      .report-column {
+          display: flex;
+          flex-direction: column;
+          margin-bottom: 20px;
+          width: 100%;
+          page-break-inside: avoid !important;
+          break-inside: avoid !important;
+      }
+
+      .column-header {
+          background-color: #2980a0 !important;
+          color: white !important;
+          padding: 8px 12px;
+          font-weight: bold;
+          border-radius: 4px 4px 0 0;
+          text-align: center;
+          font-size: 14px;
+          margin-bottom: 15px;
+      }
+
+      .column-intersections {
+          display: block;
+      }
+
+      .intersection-item {
+          border-radius: 4px;
+          overflow: hidden;
+          background-color: white;
+          width: 100%;
+          margin-bottom: 15px;
+          page-break-inside: avoid !important;
+          break-inside: avoid !important;
+      }
+
+      .intersection-title {
+          background-color: #f5f5f5;
+          padding: 6px 10px;
+          font-weight: bold;
+          border-bottom: 1px solid #ccc;
+          text-align: center;
+          font-size: 12px;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+      }
+
+      /* Top section styles */
+      .top-section {
+          display: flex;
+          flex-direction: column;
+          margin-bottom: 30px;
+          border: 1px solid #ddd;
+          border-radius: 8px;
+          overflow: hidden;
+          background-color: white;
+          page-break-inside: avoid !important;
+          break-inside: avoid !important;
+      }
+
+      .image-section {
+          width: 100%;
+          padding: 10px;
+          display: flex;
+      }
+
+      .image-section img {
+          max-width: 100%;
+          height: auto;
+          border-radius: 4px;
+      }
+
+      .columns-section {
+          width: 100%;
+          padding: 10px;
+      }
+
+      /* Additional print-specific styles */
+      @page {
+          size: A4;
+          margin: 0.5cm;
+      }
+
+      * {
+          -webkit-print-color-adjust: exact !important;
+          print-color-adjust: exact !important;
+          color-adjust: exact !important;
+      }
+
+      svg {
+          overflow: visible !important;
+          width: 100% !important;
+          height: 100% !important;
+      }
+
+      path, line, polygon {
+          vector-effect: non-scaling-stroke;
+      }
+
+      .right .direction-r {
+          margin-bottom: -5px;
+      }
+
+      .right .direction-l {
+          margin-top: -5px;
+      }
+
+      .left .direction-l {
+          margin-bottom: -5px;
+      }
+
+      .left .direction-r {
+          margin-top: -5px;
+      }
+
+      .bottom .direction-l {
+          margin-right: -5px;
+      }
+
+      .bottom .direction-r {
+          margin-left: -5px;
+      }
+
+      .top .direction-l {
+          margin-left: -5px;
+      }
+
+      .top .direction-r {
+          margin-right: -5px;
+      }
+
+      .approach-vertical .los, .approach-vertical .volume {
+          transform: rotate(-90deg);
+      }
+
+      .top .approach-vertical .lane-group {
+          margin-bottom: 5px;
+          margin-top: 10px;
+      }
+
+      .bottom .approach-vertical .lane-group {
+          margin-bottom: 10px;
+          margin-top: 5px;
+      }
+
+      .left .approach-horizontal .lane-group {
+          margin-right: 10px;
+          margin-left: 10px;
+      }
+
+      .right .approach-horizontal .lane-group {
+          margin-left: 10px;
+          margin-right: 10px;
+      }
+  </style>
+</head>
+<body>
+<%= yield %>
+</body>
+</html>

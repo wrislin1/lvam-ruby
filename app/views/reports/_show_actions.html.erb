@@ -1,0 +1,27 @@
+<div class="sticky bottom-0 z-10 bg-white p-3 w-full border-t border-gray-300 flex items-center gap-4">
+  <div class="flex items-center gap-4">
+    <%= render SecondaryButtonComponent.new "Back", icon: 'fa-arrow-left fa-lg', tag: :a, attrs: { href: reports_path } %>
+    <% if policy(@report).edit? %>
+      <%= render SecondaryButtonComponent.new 'Edit', tag: :a, icon: 'fa-edit fa-lg', attrs: { href: edit_report_path(@report), data: { turbo_frame: '_top' } } %>
+    <% end %>
+  </div>
+  <div class="ml-auto flex items-center gap-4">
+    <%= render PrimaryButtonComponent.new "Download Excel File",
+                                          icon: "fa-file-excel fa-lg",
+                                          tag: :button_to,
+                                          loading_icon: true,
+                                          attrs: { data: { form_target: 'submit' }, form: { data: { controller: 'form' } }, method: :post, path: download_excel_report_path(@report) } %>
+    <% if Rails.env.development? || (Rails.env.staging? && current_user&.admin?) %>
+      <%= render PrimaryButtonComponent.new 'Debug Report Download',
+                                            tag: :a,
+                                            icon: 'fa-bug fa-lg',
+                                            attrs: { href: render_download_report_path(@report, api_key: Rails.application.credentials.ferrum_api_key), target: "_blank" } %>
+    <% end %>
+    <% dropdown_id = dom_id(@report, :download_dropdown) %>
+    <%= render DropdownComponent.new report_download_actions(@report), id: dropdown_id, placement: "top" do |d| %>
+      <% d.with_trigger do %>
+        <%= render PrimaryButtonComponent.new 'Download Report', tag: :button, icon: 'fa-download fa-lg', attrs: { data: { dropdown_toggle: dropdown_id, dropdown_target: "trigger", dropdown_placement: "top" } } %>
+      <% end %>
+    <% end %>
+  </div>
+</div>

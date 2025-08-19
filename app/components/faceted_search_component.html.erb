@@ -1,0 +1,75 @@
+<div data-controller="faceted-search" data-faceted-search-id-value="<%= @id %>" data-faceted-search-single-value="<%= @single.to_s %>">
+  <template data-faceted-search-target="chipTemplate">
+    <div class="bg-gray-100 rounded px-2 py-1 text-xs text-gray-600 group-hover:bg-gray-200 group-hover:text-gray-700">
+      <span class="chip-text"></span>
+    </div>
+  </template>
+  <button type="button" data-faceted-search-target="toggle" class="<%= 'divide-x' if selected_options.present? %> divide-gray-200 group <%= BTN_CLASSES.join(' ') %>" data-dropdown-toggle="<%= @id %>" id="<%= toggle_id %>">
+    <span class="flex items-center gap-2 pe-3">
+      <i class="far fa-circle-plus fa-sm text-gray-600"></i>
+      <span class="font-medium text-xs"><%= @btn_label %></span>
+    </span>
+    <span class="flex items-center flex-wrap gap-1 ps-3 <%= 'hidden' unless selected_options.present? %>" data-faceted-search-target="chips">
+      <% selected_options.each do |option| %>
+        <span class="bg-gray-100 rounded px-2 py-1 text-xs text-gray-600 group-hover:bg-gray-200 group-hover:text-gray-700">
+          <span class="chip-text"><%= option[:label] %></span>
+        </span>
+      <% end %>
+    </span>
+  </button>
+  <div class="z-50 hidden bg-white rounded-lg border border-gray-200 shadow-lg dark:bg-gray-700 <%= @menu_class %>" id="<%= @id %>">
+    <% if @search %>
+      <div class="flex border-b border-gray-200 items-center px-2 py-1 gap-1 w-full overflow-hidden">
+        <i class="far fa-search shrink-0 fa-sm text-gray-500"></i>
+        <div class="flex-1">
+          <label for="<%= @id %>_filter_search" class="sr-only">Search filters</label>
+          <input
+            id="<%= @id %>_filter_search"
+            placeholder="Search..."
+            data-action="input->faceted-search#search"
+            data-faceted-search-target="searchInput"
+            type="text"
+            class="p-1.5 focus:ring-0 active:ring-0 w-full text-sm appearance-none outline-none border-0 ring-0"
+          >
+        </div>
+        <button type="button" data-action="faceted-search#clearSearch" class="hover:bg-gray-200 w-6 h-6 rounded-lg group">
+          <i class="far fa-xmark text-gray-500 group-hover:text-gray-700 dark:text-gray-400"></i>
+        </button>
+      </div>
+    <% end %>
+    <ul class="p-2 space-y-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="<%= toggle_id %>">
+      <input data-faceted-search-target="blank" class="hidden" type="<%= @single ? 'radio' : 'single' %>" name="<%= @name %>" value="">
+      <% @options.each do |option| %>
+        <% option_id = "#{@id}_#{option[:value]}" %>
+        <% selected, value, label, count = option.values_at :selected, :value, :label, :count %>
+        <% normalized_label = label.strip.downcase %>
+        <li data-faceted-search-target="option" data-search-label="<%= normalized_label %>">
+          <label class="w-full cursor-pointer px-2 gap-2 flex items-center rounded hover:bg-gray-100 dark:hover:bg-gray-600" for="<%= option_id %>">
+            <input
+              class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 <%= 'rounded' unless @single %> focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+              <%= 'checked' if selected %>
+              data-label="<%= label %>"
+              data-faceted-search-target="checkbox"
+              data-action="change->faceted-search#change"
+              type="<%= @single ? 'radio' : 'single' %>"
+              value="<%= value %>"
+              id="<%= option_id %>"
+              name="<%= @name %>"
+            >
+            <span class="select-none p-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">
+              <%= label %>
+            </span>
+            <% if count.present? %>
+              <%= render BadgeComponent.new label: count, classes: 'ml-auto', variant: 'success' %>
+            <% end %>
+          </label>
+        </li>
+      <% end %>
+    </ul>
+    <div class="border-t border-gray-200 w-full text-sm flex p-1">
+      <button data-action="click->faceted-search#clearAll" type="button" class="py-1.5 hover:bg-gray-100 dark:hover:bg-gray-600 text-center px-2 text-sm font-medium rounded flex-1">
+        Clear
+      </button>
+    </div>
+  </div>
+</div>

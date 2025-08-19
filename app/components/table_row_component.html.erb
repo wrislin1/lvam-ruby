@@ -1,0 +1,9 @@
+<tr id="<%= dom_id(@record) %>" data-id="<%= @record.id %>">
+  <% visible_columns.each_with_index do |col, col_idx| %>
+    <% classes = col.classes || '' %>
+    <td class="<%= 'whitespace-nowrap' unless classes.include?('whitespace-normal') %> border-b border-gray-200 px-3 py-4 text-sm text-gray-500 <%= classes %>">
+      <% template = col_template col %>
+      <%= render partial: template || 'partials/table_row_default', locals: col_locals(col) %>
+    </td>
+  <% end %>
+</tr>

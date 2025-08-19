@@ -1,0 +1,7 @@
+<% page_title @report.title %>
+<% content_for :head do %>
+  <%= stylesheet_link_tag 'intersection_diagrams', media: 'all', 'data-turbo-track': 'reload' %>
+<% end %>
+<%= render 'document', report: @report %>
+<%= turbo_frame_tag :modal %>
+<%= render 'show_actions' %>

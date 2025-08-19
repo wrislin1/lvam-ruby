@@ -1,0 +1,2 @@
+<% actions = report_actions(report) %>
+<%= render DropdownComponent.new actions, id: dom_id(report, :actions), disabled: actions.blank?, menu_class: 'w-48' %>

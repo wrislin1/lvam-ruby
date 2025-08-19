@@ -1,0 +1,28 @@
+<%= simple_form_for @report,
+                    html: { id: dom_id(@report, :form), data: { action: 'turbo:submit-start->report-form#submitStart turbo:submit-end->report-form#submitEnd', report_form_app_outlet: 'body', controller: 'form report-form scroll-top', turbo: true } } do |f| %>
+  <%= render FormErrorsComponent.new model: @report %>
+  <%= f.hidden_field :wizard, value: @wizard %>
+  <div class="<%= "#{!@wizard ? 'grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-8' : 'max-w-6xl mx-auto'}" %>">
+    <% if @wizard %>
+      <h2 class="text-lg font-semibold uppercase tracking-wide mb-6 report-text">Step Two</h2>
+      <h3 class="text-xl font-bold report-text">Define Your Build Conditions</h3>
+      <p class="mb-6 report-text">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at nunc nec sem blandit cursus at non augue. Nullam vulputate consequat hendrerit.
+      </p>
+    <% else %>
+      <%= render 'reports/form_fields', f: %>
+    <% end %>
+    <%= dynamic_fields_for f, :report_columns, name: "Add Another Column", container_classes: "gap-7" do |ff| %>
+      <%= render partial: "report_columns/form_fields", locals: { f: ff } %>
+    <% end %>
+    <div class="flex items-center gap-4 justify-start mt-6">
+      <% unless @wizard %>
+        <%= render SecondaryButtonComponent.new 'Cancel', tag: :a, attrs: { href: reports_path } %>
+      <% end %>
+      <% label = @wizard ? 'Next' : 'Save' %>
+      <% icon = @wizard ? 'fa-arrow-right' : 'fa-floppy-disk' %>
+      <% icon_position = @wizard ? 'right' : 'left' %>
+      <%= render PrimaryButtonComponent.new label, tag: :button, type: :submit, icon:, icon_position: %>
+    </div>
+  </div>
+<% end %>
